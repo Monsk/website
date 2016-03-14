@@ -174,21 +174,25 @@ def logout():
 
 @app.route('/')
 def index():
-    search_query = request.args.get('q')
-    if search_query:
-        query = Entry.search(search_query)
-    else:
-        query = Entry.public().order_by(Entry.timestamp.desc())
+  return render_template("index.html")
+
+# def index():
+#     search_query = request.args.get('q')
+#     if search_query:
+#         query = Entry.search(search_query)
+#     else:
+#         query = Entry.public().order_by(Entry.timestamp.desc())
 
     # The `object_list` helper will take a base query and then handle
     # paginating the results if there are more than 20. For more info see
     # the docs:
     # http://docs.peewee-orm.com/en/latest/peewee/playhouse.html#object_list
-    return object_list(
-        'index.html',
-        query,
-        search=search_query,
-        check_bounds=False)
+    # return object_list(
+    #     'index.html',
+    #     query,
+    #     search=search_query,
+    #     check_bounds=False)
+
 
 @app.route('/create/', methods=['GET', 'POST'])
 @login_required
@@ -263,7 +267,7 @@ def not_found(exc):
 
 def main():
     database.create_tables([Entry, FTSEntry], safe=True)
-    # app.run(debug=True)
+    app.run(debug=True)
 
 if __name__ == '__main__':
     main()
