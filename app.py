@@ -178,6 +178,11 @@ def index():
 
 @app.route('/data/')
 def data():
+    return render_template("data_blog_home.html")
+
+
+@app.route('/blog/')
+def blog():
     search_query = request.args.get('q')
     if search_query:
         query = Entry.search(search_query)
