@@ -180,6 +180,9 @@ def index():
 def data():
     return render_template("data_blog_home.html")
 
+@app.route('/data/entry1/')
+def data_entry1():
+    return render_template("data_blog_entry.html")
 
 @app.route('/blog/')
 def blog():
