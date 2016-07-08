@@ -178,7 +178,20 @@ def index():
 
 @app.route('/data/')
 def data():
-    return render_template("data_blog_home.html")
+    posts = [
+        {
+            'title': 'iPhones on Gumtree',
+            'summary': 'Casting a gaze into the murky world of second-hand iPhone sales.',
+            'date': '04 April, 2016'
+        },
+        {
+            'title': 'iPhones on Gumtree',
+            'summary': 'Casting a gaze into the murky world of second-hand iPhone sales.',
+            'date': '04 April, 2016'
+        }
+    ]
+    return render_template("data_blog_home.html",
+                           posts = posts)
 
 @app.route('/data/entry1/')
 def data_entry1():
@@ -256,6 +269,11 @@ def edit(slug):
             flash('Title and Content are required.', 'danger')
 
     return render_template('edit.html', entry=entry)
+
+
+@app.route('/photography/')
+def photography():
+  return render_template("photography.html")
 
 @app.template_filter('clean_querystring')
 def clean_querystring(request_args, *keys_to_remove, **new_values):

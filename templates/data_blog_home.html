@@ -54,19 +54,13 @@
 							<a href="#top"  onclick = $("#menu-close").click(); >Simon Hunter</a>
 					</li>
 					<li>
-							<a href="/" onclick = $("#menu-close").click(); >Home</a>
-					</li>
-					<li>
 							<a href="about.html" onclick = $("#menu-close").click(); >About me</a>
-					</li>
-					<li>
-							<a href="#services" onclick = $("#menu-close").click(); >Projects</a>
 					</li>
 					<li>
 							<a href="/data" onclick = $("#menu-close").click(); >Data</a>
 					</li>
 					<li>
-							<a href="photography.html" onclick = $("#menu-close").click(); >Photography</a>
+							<a href="/photography" onclick = $("#menu-close").click(); >Photography</a>
 					</li>
 					<li>
 							<a href="#contact" onclick = $("#menu-close").click(); >Travel</a>
@@ -89,18 +83,19 @@ Pretty, Needless Data
 <div id="content" class="site-content">
 <main id="primary" class="content-area hfeed">
 
+{% for post in posts %}
 <article id="post-24" class="post-24 post type-post status-publish format-standard has-post-thumbnail hentry category-travel-advice tag-confessions tag-tips tag-travel" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 <div class="entry">
 <header class="entry-header">
 <h2 class="entry-title" itemprop="headline">
-<a href="/data/entry1" title="iPhones on Gumtree" rel="bookmark">iPhones on Gumtree</a></h2>
+<a href="/data/entry1" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></h2>
 </header>
 <div class="entry-summary" itemprop="text">
-<p>Casting a gaze over the murky world of second-hand iPhone sales.</p>
+<p>{{ post.summary }}</p>
 </div>
 <footer class="entry-meta">
 <span class="entry-date">
-<time class="published updated" datetime="2016-04-04T15:22:38+00:00">April 04, 2016</time></span>
+<time class="published updated" datetime="{{ post.date }}">{{ post.date }}</time></span>
 by <span class="entry-author">
 <span class="author vcard">
 <a class="url fn n" href="http://simonhunter.co" title="Posts by Simon Hunter" rel="author">
@@ -110,6 +105,7 @@ Simon Hunter</a>
 </footer>
 </div>
 </article>
+{% endfor %}
 
 
 </main>
