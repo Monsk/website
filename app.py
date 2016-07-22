@@ -9,12 +9,12 @@ from flask import (Flask, flash, Markup, redirect, render_template, request,
 from markdown import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.extra import ExtraExtension
+from BeautifulSoup import BeautifulSoup
 from micawber import bootstrap_basic, parse_html
 from micawber.cache import Cache as OEmbedCache
 from peewee import *
 from playhouse.flask_utils import FlaskDB, get_object_or_404, object_list
 from playhouse.sqlite_ext import *
-
 
 # Blog configuration values.
 
@@ -55,8 +55,9 @@ database = flask_db.database
 oembed_providers = bootstrap_basic(OEmbedCache())
 
 
-class Entry(flask_db.Model):
+class BlogEntry(flask_db.Model):
     title = CharField()
+    subtitle = CharField()
     slug = CharField(unique=True)
     content = TextField()
     published = BooleanField(index=True)
@@ -83,7 +84,7 @@ class Entry(flask_db.Model):
         # Generate a URL-friendly representation of the entry's title.
         if not self.slug:
             self.slug = re.sub('[^\w]+', '-', self.title.lower()).strip('-')
-        ret = super(Entry, self).save(*args, **kwargs)
+        ret = super(BlogEntry, self).save(*args, **kwargs)
 
         # Store search content.
         self.update_search_index()
@@ -105,18 +106,18 @@ class Entry(flask_db.Model):
 
     @classmethod
     def public(cls):
-        return Entry.select().where(Entry.published == True)
+        return BlogEntry.select().where(BlogEntry.published == True)
 
     @classmethod
     def drafts(cls):
-        return Entry.select().where(Entry.published == False)
+        return BlogEntry.select().where(BlogEntry.published == False)
 
     @classmethod
     def search(cls, query):
         words = [word.strip() for word in query.split() if word.strip()]
         if not words:
             # Return an empty query.
-            return Entry.select().where(Entry.id == 0)
+            return BlogEntry.select().where(BlogEntry.id == 0)
         else:
             search = ' '.join(words)
 
@@ -126,16 +127,16 @@ class Entry(flask_db.Model):
         return (FTSEntry
                 .select(
                     FTSEntry,
-                    Entry,
+                    BlogEntry,
                     FTSEntry.rank().alias('score'))
-                .join(Entry, on=(FTSEntry.entry_id == Entry.id).alias('entry'))
+                .join(BlogEntry, on=(FTSEntry.entry_id == Entry.id).alias('entry'))
                 .where(
-                    (Entry.published == True) &
+                    (BlogEntry.published == True) &
                     (FTSEntry.match(search)))
                 .order_by(SQL('score').desc()))
 
 class FTSEntry(FTSModel):
-    entry_id = IntegerField(Entry)
+    entry_id = IntegerField(BlogEntry)
     content = TextField()
 
     class Meta:
@@ -178,39 +179,18 @@ def index():
 
 @app.route('/data/')
 def data():
-    posts = [
-        {
-            'title': 'iPhones on Gumtree',
-            'summary': 'Casting a gaze into the murky world of second-hand iPhone sales.',
-            'date': '04 April, 2016'
-        },
-        {
-            'title': 'iPhones on Gumtree',
-            'summary': 'Casting a gaze into the murky world of second-hand iPhone sales.',
-            'date': '04 April, 2016'
-        }
-    ]
-    return render_template("data_blog_home.html",
-                           posts = posts)
-
-@app.route('/data/entry1/')
-def data_entry1():
-    return render_template("data_blog_entry.html")
-
-@app.route('/blog/')
-def blog():
     search_query = request.args.get('q')
     if search_query:
-        query = Entry.search(search_query)
+        query = BlogEntry.search(search_query)
     else:
-        query = Entry.public().order_by(Entry.timestamp.desc())
+        query = BlogEntry.public().order_by(BlogEntry.timestamp.desc())
 
     # The `object_list` helper will take a base query and then handle
     # paginating the results if there are more than 20. For more info see
     # the docs:
     # http://docs.peewee-orm.com/en/latest/peewee/playhouse.html#object_list
     return object_list(
-        'index.html',
+        'data.html',
         query,
         search=search_query,
         check_bounds=False)
@@ -221,13 +201,14 @@ def blog():
 def create():
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
-            entry = Entry.create(
+            entry = BlogEntry.create(
                 title=request.form['title'],
+                subtitle=request.form['subtitle'],
                 content=request.form['content'],
                 published=request.form.get('published') or False)
             flash('Entry created successfully.', 'success')
             if entry.published:
-                return redirect(url_for('detail', slug=entry.slug))
+                return redirect(url_for('blog', slug=entry.slug))
             else:
                 return redirect(url_for('edit', slug=entry.slug))
         else:
@@ -237,22 +218,22 @@ def create():
 @app.route('/drafts/')
 @login_required
 def drafts():
-    query = Entry.drafts().order_by(Entry.timestamp.desc())
+    query = BlogEntry.drafts().order_by(BlogEntry.timestamp.desc())
     return object_list('index.html', query, check_bounds=False)
 
 @app.route('/<slug>/')
 def detail(slug):
     if session.get('logged_in'):
-        query = Entry.select()
+        query = BlogEntry.select()
     else:
-        query = Entry.public()
-    entry = get_object_or_404(query, Entry.slug == slug)
+        query = BlogEntry.public()
+    entry = get_object_or_404(query, BlogEntry.slug == slug)
     return render_template('detail.html', entry=entry)
 
 @app.route('/<slug>/edit/', methods=['GET', 'POST'])
 @login_required
 def edit(slug):
-    entry = get_object_or_404(Entry, Entry.slug == slug)
+    entry = get_object_or_404(BlogEntry, BlogEntry.slug == slug)
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
             entry.title = request.form['title']
@@ -293,7 +274,7 @@ def not_found(exc):
     return render_template('404.html'), 404
 
 def main():
-    database.create_tables([Entry, FTSEntry], safe=True)
+    database.create_tables([BlogEntry, FTSEntry], safe=True)
     app.run(debug=True)
 
 if __name__ == '__main__':
