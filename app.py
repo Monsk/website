@@ -6,6 +6,9 @@ import urllib
 
 from flask import (Flask, flash, Markup, redirect, render_template, request,
                    Response, session, url_for)
+
+from flask_heroku import Heroku
+
 from markdown import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.extra import ExtraExtension
@@ -24,9 +27,24 @@ from playhouse.sqlite_ext import *
 ADMIN_PASSWORD = 'secret'
 APP_DIR = os.path.dirname(os.path.realpath(__file__))
 
-# The playhouse.flask_utils.FlaskDB object accepts database URL configuration.
-DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'blog.db')
-DEBUG = False
+
+if 'HEROKU' in os.environ:
+    import urlparse, psycopg2
+    urlparse.uses_netloc.append('postgres')
+    url = urlparse.urlparse(os.environ["DATABASE_URL"])
+    DATABASE = {
+        'engine': 'peewee.PostgresqlDatabase',
+        'name': url.path[1:],
+        'user': url.username,
+        'password': url.password,
+        'host': url.hostname,
+        'port': url.port,
+    }
+else:
+    # The playhouse.flask_utils.FlaskDB object accepts database URL configuration.
+    DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'blog.db')
+    DEBUG = False
+
 
 # The secret key is used internally by Flask to encrypt session data stored
 # in cookies. Make this unique for your app.
@@ -35,7 +53,6 @@ SECRET_KEY = 'shhh, secret!'
 # This is used by micawber, which will attempt to generate rich media
 # embedded objects with maxwidth=800.
 SITE_WIDTH = 800
-
 
 # Create a Flask WSGI app and configure it using values from the module.
 app = Flask(__name__)
@@ -53,6 +70,7 @@ database = flask_db.database
 # We'll use a simple in-memory cache so that multiple requests for the same
 # video don't require multiple network requests.
 oembed_providers = bootstrap_basic(OEmbedCache())
+
 
 
 class BlogEntry(flask_db.Model):
