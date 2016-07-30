@@ -82,7 +82,7 @@ def index():
 
 @app.route('/data/')
 def data():
-    query = db.session.query(BlogEntry).filter(BlogEntry.published == 1).order_by(BlogEntry.timestamp.desc())
+    query = db.session.query(BlogEntry).filter(BlogEntry.published == True).order_by(BlogEntry.timestamp.desc())
     return render_template('data.html', object_list = query)
 
 
@@ -116,7 +116,7 @@ def create():
 @app.route('/data/drafts/')
 @login_required
 def drafts():
-    query = db.session.query(BlogEntry).filter(BlogEntry.published != 1).order_by(BlogEntry.timestamp.desc())
+    query = db.session.query(BlogEntry).filter(BlogEntry.published == False).order_by(BlogEntry.timestamp.desc())
     return render_template('data.html', object_list=query)
 
 @app.route('/<slug>/')
