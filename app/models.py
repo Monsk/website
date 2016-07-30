@@ -15,7 +15,7 @@ class BlogEntry(db.Model):
     title = db.Column(db.String(64), index=True)
     subtitle = db.Column(db.String(120), index=True)
     slug = db.Column(db.String(64), index=True, unique=True)
-    content = db.Column(db.String, index=True)
+    content = db.Column(db.Text)
     published = db.Column(db.Boolean, index=True)
     timestamp = db.Column(db.DateTime, default=datetime.datetime.now, index=True)
 
