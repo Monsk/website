@@ -147,15 +147,16 @@ def edit(slug):
         if request.form.get('title') and request.form.get('content'):
 
             # Upload cover photo
-            cover_photo = request.files['cover_photo']
-            uploaded_img = cloudinary.uploader.upload(cover_photo)
-            image_filename = uploaded_img["public_id"]
+            if request.files.get('cover_photo'):
+                cover_photo = request.files['cover_photo']
+                uploaded_img = cloudinary.uploader.upload(cover_photo)
+                image_filename = uploaded_img["public_id"]
+                entry.image_filename = image_filename
 
             entry.title = request.form['title']
             entry.subtitle = request.form['subtitle']
             entry.content = request.form['content']
             entry.published = request.form.get('published') or False
-            entry.image_filename = image_filename
 
             db.session.add(entry)
             db.session.commit()

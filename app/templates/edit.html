@@ -41,7 +41,7 @@
   <div class="form-group">
     <label for="cover_photo" class="col-sm-2 control-label">Cover Photo</label>
     <div class="col-sm-3">
-      <input class="form-control" id="cover_photo" name="cover_photo" type="file" value="{{ request.form.get('image_filename', '') }}">
+      <input class="form-control" id="cover_photo" name="cover_photo" type="file" value="{{ request.form.get('image_filename', entry.image_filename) }}">
     </div>
   </div>
   <div class="form-group">

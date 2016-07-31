@@ -62,6 +62,9 @@ Pretty, Needless Data
 </div></div>
 <div id="content" class="site-content">
 <main id="primary" class="content-area hfeed">
+	{% if session.logged_in %}
+	<a class="btn btn-default" href="{{ url_for('drafts') }}">View drafts</a>
+	{% endif %}
 
 
 	{% for entry in object_list %}
