@@ -181,6 +181,9 @@ def delete_entry(slug):
         flash('Entry was deleted')
     return redirect(url_for('drafts'))
 
+@app.route('/about/')
+def about():
+    return render_template("about.html")
 
 @app.route('/photography/')
 def photography():
