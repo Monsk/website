@@ -1,5 +1,6 @@
 import datetime
 import re
+import cloudinary.utils
 from sqlalchemy.sql import select
 from unidecode import unidecode
 
@@ -17,6 +18,7 @@ class BlogEntry(db.Model):
     subtitle = db.Column(db.String(120), index=True)
     slug = db.Column(db.String(64), index=True, unique=True)
     content = db.Column(db.Text, index=False)
+    image_filename = db.Column(db.String(200))
     published = db.Column(db.Boolean, index=True)
     timestamp = db.Column(db.DateTime, default=datetime.datetime.now, index=True)
 
@@ -36,6 +38,10 @@ class BlogEntry(db.Model):
             urlize_all=True,
             maxwidth=app.config['SITE_WIDTH'])
         return Markup(oembed_content)
+
+    @property
+    def image_path(self):
+        return cloudinary.utils.cloudinary_url(self.image_filename)[0]
 
     # def save(self, *args, **kwargs):
     #     # Generate a URL-friendly representation of the entry's title.

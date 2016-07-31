@@ -1,6 +1,7 @@
 import functools
 import re
 from unidecode import unidecode
+import cloudinary.uploader
 
 from sqlalchemy.orm import exc
 from werkzeug.exceptions import abort
@@ -91,12 +92,21 @@ def data():
 def create():
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
+
+            # Upload cover photo
+            cover_photo = request.files['cover_photo']
+            uploaded_img = cloudinary.uploader.upload(
+                cover_photo
+            )
+            image_filename = uploaded_img["public_id"]
+
             entry = BlogEntry(
                 title=request.form['title'],
                 subtitle=request.form['subtitle'],
                 content=request.form['content'],
                 published=request.form.get('published') or False,
-                slug=slugify(request.form.get('title'))
+                slug=slugify(request.form.get('title')),
+                image_filename = image_filename
                 )
 
             print(slugify(request.form.get('title')))
@@ -135,9 +145,16 @@ def edit(slug):
     entry = get_object_or_404(BlogEntry, BlogEntry.slug == slug)
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
+
+            # Upload cover photo
+            cover_photo = request.files['cover_photo']
+            uploaded_img = cloudinary.uploader.upload(cover_photo)
+            image_filename = uploaded_img["public_id"]
+
             entry.title = request.form['title']
             entry.content = request.form['content']
             entry.published = request.form.get('published') or False
+            entry.image_filename = image_filename
 
             db.session.add(entry)
             db.session.commit()

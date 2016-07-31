@@ -1,4 +1,5 @@
 import os
+import cloudinary
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 # You may consider using a one-way hash to generate the password, and then
@@ -21,3 +22,9 @@ else:
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
+
+cloudinary.config(
+    cloud_name = "monsk",
+    api_key = "551158294957374",
+    api_secret = "_cQkUqesUzbKWM7b26LJUpp1mlc"
+)

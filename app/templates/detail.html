@@ -49,12 +49,6 @@
 <meta property="og:locale" content="en_US"/> -->
 {% endblock %}
 
-{% block extra_header %}
-  {% if session.logged_in %}
-    <li><a href="{{ url_for('edit', slug=entry.slug) }}">Edit entry</a></li>
-  {% endif %}
-{% endblock %}
-
 {% block content %}
 <body class="single single-post postid-24 single-format-standard custom-background navbar-position-right header-position-left custom-header custom-header-image" itemscope itemtype="http://schema.org/WebPage">
 
@@ -67,7 +61,7 @@
 			<div id="content" class="site-content">
 				<main id="primary" class="content-area hfeed">
 					<article id="post-24" class="post-24 post type-post status-publish format-standard has-post-thumbnail hentry category-travel-advice tag-confessions tag-tips tag-travel" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-						<header class="entry-header" style="background-image: url({{ url_for('static', filename='img/iphone3.png') }});">
+						<header class="entry-header" style="background-image: url({{ entry.image_path }});">
 							<div class="entry-header-inner">
 								<h1 class="entry-title" itemprop="headline">
 									{{ entry.title }}</h1>
@@ -87,6 +81,9 @@
 								</header>
 								<div class="entry">
 									<div class="entry-inner">
+                    {% if session.logged_in %}
+                    <a class="btn btn-default" href="{{ url_for('edit', slug=entry.slug) }}">Edit entry</a>
+                    {% endif %}
 										<div class="entry-content" itemprop="text">
 											<div class="container-fluid main-container">
                         {{ entry.content | safe }}
