@@ -18,5 +18,10 @@
         <li>
             <a href="/travel" onclick = $("#menu-close").click(); >Travel</a>
         </li>
+        {% if session.logged_in %}
+        <li>
+          <a href="{{ url_for('logout') }}" onclick = $("#menu-close").click(); >Log Out</a>
+        <li>
+        {% endif %}
     </ul>
 </nav>

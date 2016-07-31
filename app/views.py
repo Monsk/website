@@ -154,6 +154,7 @@ def edit(slug):
                 entry.image_filename = image_filename
 
             entry.title = request.form['title']
+            entry.slug = slugify(request.form.get('title'))
             entry.subtitle = request.form['subtitle']
             entry.content = request.form['content']
             entry.published = request.form.get('published') or False
