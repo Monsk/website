@@ -152,6 +152,7 @@ def edit(slug):
             image_filename = uploaded_img["public_id"]
 
             entry.title = request.form['title']
+            entry.subtitle = request.form['subtitle']
             entry.content = request.form['content']
             entry.published = request.form.get('published') or False
             entry.image_filename = image_filename
@@ -168,6 +169,15 @@ def edit(slug):
             flash('Title and Content are required.', 'danger')
 
     return render_template('edit.html', entry=entry)
+
+@app.route('/delete/<slug>', methods=['POST'])
+@login_required
+def delete_entry(slug):
+    if request.method == 'POST':
+        db.session.query(BlogEntry).filter(BlogEntry.slug == slug).delete()
+        db.session.commit()
+        flash('Entry was deleted')
+    return redirect(url_for('drafts'))
 
 
 @app.route('/photography/')
