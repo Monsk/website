@@ -11,11 +11,12 @@ from app import app
 
 
 class BlogEntry(db.Model):
+    __tablename__ = "blog_entry"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64), index=True)
     subtitle = db.Column(db.String(120), index=True)
     slug = db.Column(db.String(64), index=True, unique=True)
-    content = db.Column(db.Text)
+    content = db.Column(db.Text, index=False)
     published = db.Column(db.Boolean, index=True)
     timestamp = db.Column(db.DateTime, default=datetime.datetime.now, index=True)
 
