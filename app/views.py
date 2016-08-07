@@ -187,4 +187,4 @@ def about():
 
 @app.route('/photography/')
 def photography():
-  return render_template("photography2.html")
+  return render_template("photography.html")
