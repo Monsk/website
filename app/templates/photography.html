@@ -12,10 +12,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='default-skin/default-skin.css') }}">
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
-<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
-
-
 
 <style id='enlightenment-theme-stylesheet-inline-css' type='text/css'>html{font-size:17px}h1,h2,h3,h4,h5,h6,.navbar-brand{font-family:Montserrat,sans-serif}.site-description,.entry-content,.entry-utility,.archive-description,.blog.blog-design-blog .entry-summary,.single .entry-summary,.page .page .entry-summary,.blog.blog-design-list .entry-summary,.archive .entry-summary,.search .entry-summary,.error404 .entry-summary,.entry-content,.more-link,.comment-content,#infscr-loading{font-family:PT Serif,serif}</style>
 <link rel='stylesheet' id='fluidbox-css' href='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/core/css/fluidbox.css' type='text/css' media='all'/>
@@ -72,7 +68,7 @@
 		<div class="row">
 			<div id="Svalbard" class="gallery">
 
-				<a href="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" data-size="964x1068" data-author="Simon Hunter" class="gallery__img--main">
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" data-size="964x1068" data-med="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" data-med-size="964x1068" data-author="Simon Hunter" class="gallery__img--main">
 					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_240/c_crop,w_240,h_240/v1470589402/Svalbard/DSC_3019.jpg" alt="" />
 					<figure>Inquisitive yearling.</figure>
 				</a>
@@ -654,7 +650,7 @@ _stq.push([ 'clickTrackerInit', '95763242', '0' ]);
 
 			// see: http://photoswipe.com/documentation/responsive-images.html
 			var realViewportWidth,
-			useLargeImages = false,
+			useLargeImages = true,
 			firstResize = true,
 			imageSrcWillChange;
 
@@ -673,7 +669,8 @@ _stq.push([ 'clickTrackerInit', '95763242', '0' ]);
 
 				} else {
 					if(useLargeImages) {
-						useLargeImages = false;
+						// edited to = true, ordinarily should be false
+						useLargeImages = true;
 						imageSrcWillChange = true;
 					}
 				}
@@ -725,7 +722,7 @@ _stq.push([ 'clickTrackerInit', '95763242', '0' ]);
 
 </script>
 
-<script>
+<!-- <script>
 $('.picture').each( function() {
     var $pic     = $(this),
         getItems = function() {
@@ -765,7 +762,7 @@ $pic.on('click', 'figure', function(event) {
     var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
     lightBox.init();
 });
-</script>
+</script> -->
 
 </body>
 
