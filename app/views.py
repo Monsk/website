@@ -79,7 +79,7 @@ def logout():
 
 @app.route('/')
 def index():
-  return render_template("index.html")
+  return render_template("index2.html")
 
 @app.route('/data/')
 def data():
@@ -183,8 +183,20 @@ def delete_entry(slug):
 
 @app.route('/about/')
 def about():
-    return render_template("about.html")
+    return render_template("about2.html")
 
-@app.route('/photography/')
+@app.route('/photography')
 def photography():
   return render_template("photography.html")
+
+@app.route('/photography2/')
+def photography2():
+  return render_template("photography2.html")
+
+@app.route('/photography/national_parks')
+def national_parks():
+  return render_template("nationalparks.html")
+
+@app.route('/photography/arctic')
+def arctic():
+  return render_template("arctic.html")

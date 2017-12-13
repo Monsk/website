@@ -1,0 +1,45 @@
+{% extends "base2.html" %}
+{% block title %}Simon Hunter | About{% endblock %}
+
+{% block content %}
+
+{% include "includes/navbar.html" %}
+
+<div class="container">
+
+    <div class="head-about">
+      <h1 class="about-h1">Hi, I'm Simon</h1>
+      <!-- <p class="lead about-lead">Welcome to my blog, take your time give it a read and browse around.</p> -->
+    </div>
+
+  </div>
+
+  <div class="post-fluid">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row laread-about">
+
+          <div class="about-picture">
+            <img src="{{ url_for('static', filename='img/me.jpg') }}" alt="" />
+          </div>
+
+          <p class="basic-info"> Product, Healthcare <span><i class="fa fa-map-marker"></i> San Francisco, United States</span></p>
+
+          <p>PhD in organic semiconductors, passion for technology. Head of product at Hinge Health where we develop the future of healthcare delivery.
+            When time permits, I travel. And when I travel I tend to take photos. Some of which I display on this site.
+            When I have insufficient time to travel I play around with coding, design and data. This website is a product of that.
+            I spend too much money on records and enjoy listening to repetitive music in dark rooms.
+          </p>
+
+          <h4>Get In Touch</h4>
+          <ul class="about-social">
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

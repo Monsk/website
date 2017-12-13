@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+  <!-- Jasny CSS -->
+  <link href="{{ url_for('static', filename='css/jasny-bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Animate CSS -->
+  <link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet">
+  <!-- Code CSS -->
+  <link href="{{ url_for('static', filename='css/tomorrow-night.css') }}" rel="stylesheet" />
+  <!-- Gallery CSS -->
+  <link href="{{ url_for('static', filename='css/bootstrap-gallery.css') }}" rel="stylesheet">
+  <!-- ColorBox CSS -->
+  <link href="{{ url_for('static', filename='css/colorbox.css') }}" rel="stylesheet">
+  <!-- Custom font -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,100,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  {% block extra_head %}{% endblock %}
+  {% block extra_scripts %}{% endblock %}
+</head>
+
+</html>
+
+
+{% block content %}{% endblock %}
+
+<footer class="container-fluid footer">
+  <div class="container text-center">
+    <div class="footer-logo"><img src="../assets/img/logo-black.png" alt=""></div>
+    <p class="laread-motto">Designed for Read.</p>
+    <div class="laread-social">
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-pinterest"></a>
+    </div>
+  </div>
+</footer>
+</div>
+
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jasny-bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/prettify.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/lang-css.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.blueimp-gallery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/imagesloaded.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.dotdotdot.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.colorbox-min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.nicescroll.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/masonry.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.ellipsis.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/viewportchecker.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/screenfull.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.touchSwipe.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
