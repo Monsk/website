@@ -1,0 +1,956 @@
+{% extends "base.html" %}
+{% block title %}Simon Hunter | Photography{% endblock %}
+{% block extra_head %}
+{{ super() }}
+
+<style type="text/css">img.wp-smiley,img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-0.1em!important;background:none!important;padding:0!important;}</style>
+<link rel=stylesheet id='genericons-css' type=text/css href="{{ url_for('static', filename='css/genericons.css') }}" />
+<link rel=stylesheet id='jetpack_css-css' type=text/css href="{{ url_for('static', filename='css/jetpack.css') }}" />
+<link rel=stylesheet id='enlightenment-web-fonts-css' type=text/css href="{{ url_for('static', filename='css/googlefonts.css') }}" />
+<link rel=stylesheet id='enlightenment-theme-stylesheet-css' type=text/css href="{{ url_for('static', filename='css/enlightenment-theme.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/photoswipe.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='default-skin/default-skin.css') }}">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+
+<style id='enlightenment-theme-stylesheet-inline-css' type='text/css'>html{font-size:17px}h1,h2,h3,h4,h5,h6,.navbar-brand{font-family:Montserrat,sans-serif}.site-description,.entry-content,.entry-utility,.archive-description,.blog.blog-design-blog .entry-summary,.single .entry-summary,.page .page .entry-summary,.blog.blog-design-list .entry-summary,.archive .entry-summary,.search .entry-summary,.error404 .entry-summary,.entry-content,.more-link,.comment-content,#infscr-loading{font-family:PT Serif,serif}</style>
+<link rel='stylesheet' id='fluidbox-css' href='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/core/css/fluidbox.css' type='text/css' media='all'/>
+
+{% endblock %}
+{% block extra_scripts %}
+{{ super() }}
+<!--[if lt IE 9]>
+<script src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/core/js/html5shiv.min.js'></script>
+<script src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/core/js/respond.min.js'></script>
+<![endif]-->
+
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/plugins/pixelyoursite/js/public.js?ver=1.0'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://demo.onedesigns.com/graceunderpressure/journal/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://demo.onedesigns.com/graceunderpressure/journal/wp-includes/wlwmanifest.xml"/>
+<meta name="generator" content="WordPress 4.3.2"/>
+<style type='text/css'>img#wpstats{display:none}</style><style>.page-header{background-image:url("{{ url_for('static', filename='img/photos.jpg') }}");}</style>
+<style type="text/css" id="custom-background-css">.custom-background,.custom-background .entry,.custom-background.navbar-position-left.archive .site-content,.custom-background.navbar-position-left.search .site-content,.custom-background.navbar-position-left.error404 .site-content,.custom-background.navbar-position-left.header-position-right.blog.blog-design-list .site-content,.custom-background.navbar-position-left.header-position-right.archive .site-content,.custom-background.navbar-position-left.header-position-right.search .site-content,.custom-background.navbar-position-left.header-position-right.error404 .site-content,.custom-background.navbar-position-left.header-position-right.blog.blog-design-blog .entry,.custom-background.navbar-position-left.header-position-right.single .entry,.custom-background.navbar-position-left.header-position-right.page .page .entry,.custom-background.navbar-position-left.blog.blog-design-blog .entry,.custom-background.navbar-position-left.single .entry,.custom-background.navbar-position-left.page .page .entry{background-color:#ffffff;}.custom-background.blog.blog-design-list .entry{background-image:none;}@media (min-width: 992px) {.more-link::after{background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1) 177px) no-repeat;}}</style>
+
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/navbar.html" %}
+
+<body class="home blog custom-background navbar-position-right header-position-left blog-design-list custom-header custom-header-image" itemscope itemtype="http://schema.org/WebPage">
+
+	<!-- "blog-design-list" class hides the sidebar menu -->
+	<!-- <body class="home blog custom-background navbar-position-right header-position-left custom-header custom-header-image" itemscope itemtype="http://schema.org/WebPage"> -->
+
+
+	<!-- <a class="skip-link screen-reader-text sr-only sr-only-focusable" href="#content" title="Skip to content">
+	Skip to content</a> -->
+	<div id="page" class="site">
+
+		<div class="archive-header page-header page-header">
+			<div class="page-header-inner"><h1 class="archive-title page-title">
+				Photography
+			</h1>
+			<div class="archive-description">
+				<p>When I go somewhere interesting I take photos.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="section section--head" style="padding-left:45%">
+
+		<div class="row row--heading">
+			<h1>Svalbard</h1>
+		</div>
+
+		<div class="row">
+			<div id="Svalbard" class="gallery">
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" data-size="964x1068" data-med="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" data-med-size="964x1068" data-author="Simon Hunter" class="gallery__img--main">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_240/c_crop,w_240,h_240/v1470589402/Svalbard/DSC_3019.jpg" alt="" />
+					<figure>Inquisitive yearling.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/c_scale,w_1600/v1470589387/Svalbard/DSC_2334.jpg" data-size="1600x1067" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470589387/Svalbard/DSC_2334.jpg" alt="" />
+					<figure>Bearded seal.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/c_scale,w_1600/v1470589059/Svalbard/DSC_2365.jpg" data-size="1600x1067" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470589059/Svalbard/DSC_2365.jpg" alt="" />
+					<figure>Iceberg.</figure>
+				</a>
+
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470589142/Svalbard/DSC_3195.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470589142/Svalbard/DSC_3195.jpg" alt="" />
+					<figure>Midnight sun.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470589383/Svalbard/DSC_2383.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470589383/Svalbard/DSC_2383.jpg" alt="" />
+					<figure>Zodiak cruising.</figure>
+				</a>
+
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1067/v1470589070/Svalbard/DSC_3092.jpg" data-size="712x1067" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,w_171,h_113/v1470589070/Svalbard/DSC_3092.jpg" alt="" />
+					<figure>This is a walrus</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,w_1600/v1470589059/Svalbard/DSC_1993.jpg" data-size="1600x821" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470589059/Svalbard/DSC_1993.jpg" alt="" />
+					<figure>This is a reindeer.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,w_1600/v1470589059/Svalbard/DSC_1995.jpg" data-size="1600x1000" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470589059/Svalbard/DSC_1995.jpg" alt="" />
+					<figure>This is a landscape.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589071/Svalbard/DSC_1978.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589071/Svalbard/DSC_1978.jpg" alt="" />
+					<figure>A rock ptarmigan.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1067/v1470589223/Svalbard/DSC_2032.jpg" data-size="712x1067" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589223/Svalbard/DSC_2032.jpg" alt="" />
+					<figure>A glacier.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589223/Svalbard/DSC_2095.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589223/Svalbard/DSC_2095.jpg" alt="" />
+					<figure>A polar bear with seal kill.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589280/Svalbard/DSC_2125.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589280/Svalbard/DSC_2125.jpg" alt="" />
+					<figure>A polar bear on glacial ice.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589257/Svalbard/DSC_2175.jpg" data-size="1600x624" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589257/Svalbard/DSC_2175.jpg" alt="" />
+					<figure>Polar landscape.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589376/Svalbard/DSC_2279.jpg" data-size="1600x1280" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589376/Svalbard/DSC_2279.jpg" alt="" />
+					<figure>A red phalarope.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589294/Svalbard/DSC_2289.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589294/Svalbard/DSC_2289.jpg" alt="" />
+					<figure>A little auk.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589334/Svalbard/DSC_2492.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589334/Svalbard/DSC_2492.jpg" alt="" />
+					<figure>Infinite glacier.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589367/Svalbard/DSC_2736.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589367/Svalbard/DSC_2736.jpg" alt="" />
+					<figure>Polar bear, cubs and seal kill.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589360/Svalbard/DSC_2882.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589360/Svalbard/DSC_2882.jpg" alt="" />
+					<figure>Play time.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1068/v1470589405/Svalbard/DSC_2910.jpg" data-size="713x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589405/Svalbard/DSC_2910.jpg" alt="" />
+					<figure>Mother and bear of the year.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589392/Svalbard/DSC_2939.jpg" data-size="1600x429" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589392/Svalbard/DSC_2939.jpg" alt="" />
+					<figure>Guillemots over a violet sea.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589041/Svalbard/DSC_3022.jpg" data-size="854x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589041/Svalbard/DSC_3022.jpg" alt="" />
+					<figure>Mother and yearling.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589009/Svalbard/DSC_3037.jpg" data-size="1600x841" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589009/Svalbard/DSC_3037.jpg" alt="" />
+					<figure>Fast ice.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589012/Svalbard/DSC_3063.jpg" data-size="1600x649" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589012/Svalbard/DSC_3063.jpg" alt="" />
+					<figure>The wormhole, Svalbard.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589093/Svalbard/DSC_3073.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589093/Svalbard/DSC_3073.jpg" alt="" />
+					<figure>Reindeer.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589073/Svalbard/DSC_3153.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589073/Svalbard/DSC_3153.jpg" alt="" />
+					<figure>Kittiwake colony.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589208/Svalbard/DSC_3177.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589208/Svalbard/DSC_3177.jpg" alt="" />
+					<figure>Arctic fox.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589119/Svalbard/DSC_3231.jpg" data-size="1600x819" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589119/Svalbard/DSC_3231.jpg" alt="" />
+					<figure>Little auks.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589131/Svalbard/DSC_3267.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589131/Svalbard/DSC_3267.jpg" alt="" />
+					<figure>Violent polar landscape.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1068/v1470589137/Svalbard/DSC_3298.jpg" data-size="713x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589137/Svalbard/DSC_3298.jpg" alt="" />
+					<figure>Kittwakes on ice.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589217/Svalbard/DSC_3346.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589217/Svalbard/DSC_3346.jpg" alt="" />
+					<figure>Rugged ice.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589200/Svalbard/DSC_3379.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589200/Svalbard/DSC_3379.jpg" alt="" />
+					<figure>Contorted structure.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589219/Svalbard/DSC_3444.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589219/Svalbard/DSC_3444.jpg" alt="" />
+					<figure>Collapsed trappers hut.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589318/Svalbard/DSC_3454.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589318/Svalbard/DSC_3454.jpg" alt="" />
+					<figure>Pyramiden.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589274/Svalbard/DSC_3446.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589274/Svalbard/DSC_3446.jpg" alt="" />
+					<figure>Pushing off.</figure>
+				</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="section section--head" style="padding-left:45%">
+
+		<div class="row row--heading">
+			<h1>US Southwest</h1>
+		</div>
+
+		<div class="row">
+			<div id="US-southwest" class="gallery">
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" data-size="964x1068" data-med="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" data-med-size="964x1068" data-author="Simon Hunter" class="gallery__img--main">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_240/c_crop,w_240,h_240/v1470589402/Svalbard/DSC_3019.jpg" alt="" />
+					<figure>Inquisitive yearling.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/c_scale,w_1600/v1470589387/Svalbard/DSC_2334.jpg" data-size="1600x1067" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470589387/Svalbard/DSC_2334.jpg" alt="" />
+					<figure>Bearded seal.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/c_scale,w_1600/v1470589059/Svalbard/DSC_2365.jpg" data-size="1600x1067" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470589059/Svalbard/DSC_2365.jpg" alt="" />
+					<figure>Iceberg.</figure>
+				</a>
+
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470589142/Svalbard/DSC_3195.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470589142/Svalbard/DSC_3195.jpg" alt="" />
+					<figure>Midnight sun.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470589383/Svalbard/DSC_2383.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470589383/Svalbard/DSC_2383.jpg" alt="" />
+					<figure>Zodiak cruising.</figure>
+				</a>
+
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1067/v1470589070/Svalbard/DSC_3092.jpg" data-size="712x1067" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,w_171,h_113/v1470589070/Svalbard/DSC_3092.jpg" alt="" />
+					<figure>This is a walrus</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,w_1600/v1470589059/Svalbard/DSC_1993.jpg" data-size="1600x821" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470589059/Svalbard/DSC_1993.jpg" alt="" />
+					<figure>This is a reindeer.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,w_1600/v1470589059/Svalbard/DSC_1995.jpg" data-size="1600x1000" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470589059/Svalbard/DSC_1995.jpg" alt="" />
+					<figure>This is a landscape.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589071/Svalbard/DSC_1978.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589071/Svalbard/DSC_1978.jpg" alt="" />
+					<figure>A rock ptarmigan.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1067/v1470589223/Svalbard/DSC_2032.jpg" data-size="712x1067" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589223/Svalbard/DSC_2032.jpg" alt="" />
+					<figure>A glacier.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589223/Svalbard/DSC_2095.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589223/Svalbard/DSC_2095.jpg" alt="" />
+					<figure>A polar bear with seal kill.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589280/Svalbard/DSC_2125.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589280/Svalbard/DSC_2125.jpg" alt="" />
+					<figure>A polar bear on glacial ice.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589257/Svalbard/DSC_2175.jpg" data-size="1600x624" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589257/Svalbard/DSC_2175.jpg" alt="" />
+					<figure>Polar landscape.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589376/Svalbard/DSC_2279.jpg" data-size="1600x1280" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589376/Svalbard/DSC_2279.jpg" alt="" />
+					<figure>A red phalarope.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589294/Svalbard/DSC_2289.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589294/Svalbard/DSC_2289.jpg" alt="" />
+					<figure>A little auk.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589334/Svalbard/DSC_2492.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589334/Svalbard/DSC_2492.jpg" alt="" />
+					<figure>Infinite glacier.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589367/Svalbard/DSC_2736.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589367/Svalbard/DSC_2736.jpg" alt="" />
+					<figure>Polar bear, cubs and seal kill.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589360/Svalbard/DSC_2882.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589360/Svalbard/DSC_2882.jpg" alt="" />
+					<figure>Play time.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1068/v1470589405/Svalbard/DSC_2910.jpg" data-size="713x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589405/Svalbard/DSC_2910.jpg" alt="" />
+					<figure>Mother and bear of the year.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589392/Svalbard/DSC_2939.jpg" data-size="1600x429" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589392/Svalbard/DSC_2939.jpg" alt="" />
+					<figure>Guillemots over a violet sea.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589041/Svalbard/DSC_3022.jpg" data-size="854x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589041/Svalbard/DSC_3022.jpg" alt="" />
+					<figure>Mother and yearling.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589009/Svalbard/DSC_3037.jpg" data-size="1600x841" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589009/Svalbard/DSC_3037.jpg" alt="" />
+					<figure>Fast ice.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589012/Svalbard/DSC_3063.jpg" data-size="1600x649" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589012/Svalbard/DSC_3063.jpg" alt="" />
+					<figure>The wormhole, Svalbard.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589093/Svalbard/DSC_3073.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589093/Svalbard/DSC_3073.jpg" alt="" />
+					<figure>Reindeer.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589073/Svalbard/DSC_3153.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589073/Svalbard/DSC_3153.jpg" alt="" />
+					<figure>Kittiwake colony.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589208/Svalbard/DSC_3177.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589208/Svalbard/DSC_3177.jpg" alt="" />
+					<figure>Arctic fox.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589119/Svalbard/DSC_3231.jpg" data-size="1600x819" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589119/Svalbard/DSC_3231.jpg" alt="" />
+					<figure>Little auks.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589131/Svalbard/DSC_3267.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589131/Svalbard/DSC_3267.jpg" alt="" />
+					<figure>Violent polar landscape.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1068/v1470589137/Svalbard/DSC_3298.jpg" data-size="713x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589137/Svalbard/DSC_3298.jpg" alt="" />
+					<figure>Kittwakes on ice.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589217/Svalbard/DSC_3346.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589217/Svalbard/DSC_3346.jpg" alt="" />
+					<figure>Rugged ice.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589200/Svalbard/DSC_3379.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589200/Svalbard/DSC_3379.jpg" alt="" />
+					<figure>Contorted structure.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589219/Svalbard/DSC_3444.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589219/Svalbard/DSC_3444.jpg" alt="" />
+					<figure>Collapsed trappers hut.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589318/Svalbard/DSC_3454.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589318/Svalbard/DSC_3454.jpg" alt="" />
+					<figure>Pyramiden.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470589274/Svalbard/DSC_3446.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/v1470589274/Svalbard/DSC_3446.jpg" alt="" />
+					<figure>Pushing off.</figure>
+				</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="section section--head" style="padding-left:45%">
+
+		<div class="row row--heading">
+			<h1>Norway</h1>
+		</div>
+
+		<div class="row">
+			<div id="Norway" class="gallery">
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470594535/Norway/DSC_3549.jpg" data-size="1600x1068" data-author="Simon Hunter" class="gallery__img--main">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_240/c_crop,w_240,h_240/v1470594535/Norway/DSC_3549.jpg" alt="" />
+					<figure>The road to Flam.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470594518/Norway/DSC_3547.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,h_113/v1470594518/Norway/DSC_3547.jpg" alt="" />
+					<figure>Waterfall.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470594520/Norway/DSC_3542.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470594520/Norway/DSC_3542.jpg" alt="" />
+					<figure>Little bird.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470594484/Norway/DSC_3492.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,w_171,h_113/v1470594484/Norway/DSC_3492.jpg" alt="" />
+					<figure>The river to Flam.</figure>
+				</a>
+
+				<a href="http://res.cloudinary.com/monsk/image/upload/v1470594529/Norway/DSC_3536.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,w_171/c_crop,w_171,h_113/v1470594529/Norway/DSC_3536.jpg" alt="" />
+					<figure>Flam.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1068/v1470594533/Norway/DSC_3504.jpg" data-size="713x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470594533/Norway/DSC_3504.jpg" alt="" />
+					<figure>Falls.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470594458/Norway/DSC_3541.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470594458/Norway/DSC_3541.jpg" alt="" />
+					<figure>Another little bird.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470594416/Norway/DSC_3535.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470594416/Norway/DSC_3535.jpg" alt="" />
+					<figure>Flam.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/v1470594413/Norway/DSC_3510.jpg" data-size="1600x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470594413/Norway/DSC_3510.jpg" alt="" />
+					<figure>Stegastein viewpoint.</figure>
+				</a>
+
+				<a style="display:none" href="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1068/v1470594405/Norway/DSC_3527.jpg" data-size="713x1068" data-author="Simon Hunter">
+					<img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_171/c_crop,w_171,h_113/v1470594405/Norway/DSC_3527.jpg" alt="" />
+					<figure>Down the fjord.</figure>
+				</a>
+
+
+
+
+
+
+
+			</div>
+			<!-- <figure class="gallery__title">Demo gallery &middot; 5 photos</figure> -->
+
+		</div>
+
+	</div>
+
+
+	<div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="pswp__bg"></div>
+
+		<div class="pswp__scroll-wrap">
+
+			<div class="pswp__container">
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+
+			<div class="pswp__ui pswp__ui--hidden">
+
+				<div class="pswp__top-bar">
+
+					<div class="pswp__counter"></div>
+
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+					<button class="pswp__button pswp__button--share" title="Share"></button>
+
+					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+							<div class="pswp__preloader__cut">
+								<div class="pswp__preloader__donut"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> -->
+
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip">
+					</div>
+				</div>
+
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+				<div class="pswp__caption">
+					<div class="pswp__caption__center">
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+</div>
+<div class="navbar-hide"></div>
+
+
+<script type="text/javascript">
+{% include "includes/navbar.js" %}
+</script>
+<!-- Core photoswipe JS file -->
+<script src="{{ url_for('static', filename='js/photoswipe.min.js') }}"></script>
+
+<!-- Photoswipe UI JS file -->
+<script src="{{ url_for('static', filename='js/photoswipe-ui-default.js') }}"></script>
+
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201613'></script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/core/js/bootstrap.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var enlightenment_fluidbox_args = {"selector":"a[href$=\".jpg\"], a[href$=\".jpeg\"], a[href$=\".png\"], a[href$=\".gif\"]","maxWidth":"100%","maxHeight":"100%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/core/js/jquery.fluidbox.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var enlightenment_infinite_scroll_args = {"loading":{"img":"http:\/\/demo.onedesigns.com\/graceunderpressure\/journal\/wp-content\/themes\/graceunderpressure\/core\/images\/ajax-loader-transparent.gif","msgText":"Loading more posts &#8230;","finishedMsg":"There are no more posts to display."},"navSelector":"#posts-nav","nextSelector":".next a, a.next","contentSelector":"#primary","itemSelector":".hentry","debug":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/core/js/jquery.infinitescroll.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var enlightenment_call_js = {"ajaxurl":"http:\/\/demo.onedesigns.com\/graceunderpressure\/journal\/wp-admin\/admin-ajax.php","site_url":"http:\/\/demo.onedesigns.com\/graceunderpressure\/journal","admin_url":"http:\/\/demo.onedesigns.com\/graceunderpressure\/journal\/wp-admin\/","includes_url":"http:\/\/demo.onedesigns.com\/graceunderpressure\/journal\/wp-includes\/","plugins_url":"http:\/\/demo.onedesigns.com\/graceunderpressure\/journal\/wp-content\/plugins"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/core/js/call.js'></script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/js/sticky-kit.min.js'></script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/js/jquery.touchSwipe.min.js'></script>
+<script type='text/javascript' src='http://demo.onedesigns.com/graceunderpressure/journal/wp-content/themes/graceunderpressure/js/master.js'></script>
+<script type='text/javascript' src='http://stats.wp.com/e-201613.js' async defer></script>
+<script type='text/javascript'>
+_stq = window._stq || [];
+_stq.push([ 'view', {v:'ext',j:'1:3.8.0',blog:'95763242',post:'0',tz:'0',srv:'demo.onedesigns.com'} ]);
+_stq.push([ 'clickTrackerInit', '95763242', '0' ]);
+</script>
+
+
+
+<script type="text/javascript">
+(function() {
+
+	var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+		var parseThumbnailElements = function(el) {
+			var thumbElements = el.childNodes,
+			numNodes = thumbElements.length,
+			items = [],
+			el,
+			childElements,
+			thumbnailEl,
+			size,
+			item;
+
+			for(var i = 0; i < numNodes; i++) {
+				el = thumbElements[i];
+
+				// include only element nodes
+				if(el.nodeType !== 1) {
+					continue;
+				}
+
+				childElements = el.children;
+
+				size = el.getAttribute('data-size').split('x');
+
+				// create slide object
+				item = {
+					src: el.getAttribute('href'),
+					w: parseInt(size[0], 10),
+					h: parseInt(size[1], 10),
+					author: el.getAttribute('data-author')
+				};
+
+				item.el = el; // save link to element for getThumbBoundsFn
+
+				if(childElements.length > 0) {
+					// msrc controls the dynamic scaling of the image on clicking the thumbnail
+					// item.msrc = childElements[0].getAttribute('src'); // thumbnail url
+					if(childElements.length > 1) {
+						item.title = childElements[1].innerHTML; // caption (contents of figure)
+					}
+				}
+
+
+				var mediumSrc = el.getAttribute('data-med');
+				if(mediumSrc) {
+					size = el.getAttribute('data-med-size').split('x');
+					// "medium-sized" image
+					item.m = {
+						src: mediumSrc,
+						w: parseInt(size[0], 10),
+						h: parseInt(size[1], 10)
+					};
+				}
+				// original image
+				item.o = {
+					src: item.src,
+					w: item.w,
+					h: item.h
+				};
+
+				items.push(item);
+			}
+
+			return items;
+		};
+
+		// find nearest parent element
+		var closest = function closest(el, fn) {
+			return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+		};
+
+		var onThumbnailsClick = function(e) {
+			e = e || window.event;
+			e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+			var eTarget = e.target || e.srcElement;
+
+			var clickedListItem = closest(eTarget, function(el) {
+				return el.tagName === 'A';
+			});
+
+			if(!clickedListItem) {
+				return;
+			}
+
+			var clickedGallery = clickedListItem.parentNode;
+
+			var childNodes = clickedListItem.parentNode.childNodes,
+			numChildNodes = childNodes.length,
+			nodeIndex = 0,
+			index;
+
+			for (var i = 0; i < numChildNodes; i++) {
+				if(childNodes[i].nodeType !== 1) {
+					continue;
+				}
+
+				if(childNodes[i] === clickedListItem) {
+					index = nodeIndex;
+					break;
+				}
+				nodeIndex++;
+			}
+
+			if(index >= 0) {
+				openPhotoSwipe( index, clickedGallery );
+			}
+			return false;
+		};
+
+		var photoswipeParseHash = function() {
+			var hash = window.location.hash.substring(1),
+			params = {};
+
+			if(hash.length < 5) { // pid=1
+				return params;
+			}
+
+			var vars = hash.split('&');
+			for (var i = 0; i < vars.length; i++) {
+				if(!vars[i]) {
+					continue;
+				}
+				var pair = vars[i].split('=');
+				if(pair.length < 2) {
+					continue;
+				}
+				params[pair[0]] = pair[1];
+			}
+
+			if(params.gid) {
+				params.gid = parseInt(params.gid, 10);
+			}
+
+			return params;
+		};
+
+		var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+			var pswpElement = document.querySelectorAll('.pswp')[0],
+			gallery,
+			options,
+			items;
+
+			items = parseThumbnailElements(galleryElement);
+
+			// define options (if needed)
+			options = {
+
+				galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+				getThumbBoundsFn: function(index) {
+					// See Options->getThumbBoundsFn section of docs for more info
+					var thumbnail = items[index].el.children[0],
+					pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+					rect = thumbnail.getBoundingClientRect();
+
+					return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+				},
+
+				addCaptionHTMLFn: function(item, captionEl, isFake) {
+					if(!item.title) {
+						captionEl.children[0].innerText = '';
+						return false;
+					}
+					captionEl.children[0].innerHTML = item.title +  '<br/><small>Photo: ' + item.author + '</small>';
+					return true;
+				},
+
+				// suppresses hide and show image animations
+				hideAnimationDuration:0,
+				showAnimationDuration: 0
+
+			};
+
+
+			if(fromURL) {
+				if(options.galleryPIDs) {
+					// parse real index when custom PIDs are used
+					// http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+					for(var j = 0; j < items.length; j++) {
+						if(items[j].pid == index) {
+							options.index = j;
+							break;
+						}
+					}
+				} else {
+					options.index = parseInt(index, 10) - 1;
+				}
+			} else {
+				options.index = parseInt(index, 10);
+			}
+
+			// exit if index not found
+			if( isNaN(options.index) ) {
+				return;
+			}
+
+
+
+			var radios = document.getElementsByName('gallery-style');
+			for (var i = 0, length = radios.length; i < length; i++) {
+				if (radios[i].checked) {
+					if(radios[i].id == 'radio-all-controls') {
+
+					} else if(radios[i].id == 'radio-minimal-black') {
+						options.mainClass = 'pswp--minimal--dark';
+						options.barsSize = {top:0,bottom:0};
+						options.captionEl = false;
+						options.fullscreenEl = false;
+						options.shareEl = false;
+						options.bgOpacity = 0.85;
+						options.tapToClose = true;
+						options.tapToToggleControls = false;
+					}
+					break;
+				}
+			}
+
+			if(disableAnimation) {
+				options.showAnimationDuration = 0;
+			}
+
+			// Pass data to PhotoSwipe and initialize it
+			gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+
+			// see: http://photoswipe.com/documentation/responsive-images.html
+			var realViewportWidth,
+			useLargeImages = true,
+			firstResize = true,
+			imageSrcWillChange;
+
+			gallery.listen('beforeResize', function() {
+
+				var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
+				dpiRatio = Math.min(dpiRatio, 2.5);
+				realViewportWidth = gallery.viewportSize.x * dpiRatio;
+
+
+				if(realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200 ) {
+					if(!useLargeImages) {
+						useLargeImages = true;
+						imageSrcWillChange = true;
+					}
+
+				} else {
+					if(useLargeImages) {
+						// edited to = true, ordinarily should be false
+						useLargeImages = true;
+						imageSrcWillChange = true;
+					}
+				}
+
+				if(imageSrcWillChange && !firstResize) {
+					gallery.invalidateCurrItems();
+				}
+
+				if(firstResize) {
+					firstResize = false;
+				}
+
+				imageSrcWillChange = false;
+
+			});
+
+			gallery.listen('gettingData', function(index, item) {
+				if( useLargeImages ) {
+					item.src = item.o.src;
+					item.w = item.o.w;
+					item.h = item.o.h;
+				} else {
+					item.src = item.m.src;
+					item.w = item.m.w;
+					item.h = item.m.h;
+				}
+			});
+
+			gallery.init();
+		};
+
+		// select all gallery elements
+		var galleryElements = document.querySelectorAll( gallerySelector );
+		for(var i = 0, l = galleryElements.length; i < l; i++) {
+			galleryElements[i].setAttribute('data-pswp-uid', i+1);
+			galleryElements[i].onclick = onThumbnailsClick;
+		}
+
+		// Parse URL and open gallery if it contains #&pid=3&gid=1
+		var hashData = photoswipeParseHash();
+		if(hashData.pid && hashData.gid) {
+			openPhotoSwipe( hashData.pid,  galleryElements[ hashData.gid - 1 ], true, true );
+		}
+	};
+
+	initPhotoSwipeFromDOM('.gallery');
+
+})();
+
+</script>
+
+<!-- <script>
+$('.picture').each( function() {
+    var $pic     = $(this),
+        getItems = function() {
+            var items = [];
+            $pic.find('a').each(function() {
+                var $href   = $(this).attr('href'),
+                    $size   = $(this).data('size').split('x'),
+                    $width  = $size[0],
+                    $height = $size[1];
+
+                var item = {
+                    src : $href,
+                    w   : $width,
+                    h   : $height
+                }
+
+                items.push(item);
+            });
+            return items;
+        }
+
+    var items = getItems();
+});
+
+var $pswp = $('.pswp')[0];
+$pic.on('click', 'figure', function(event) {
+    event.preventDefault();
+
+    var $index = $(this).index();
+    var options = {
+        index: $index,
+        bgOpacity: 0.7,
+        showHideOpacity: true
+    }
+
+    // Initialize PhotoSwipe
+    var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+    lightBox.init();
+});
+</script> -->
+
+</body>
+
+{% endblock %}

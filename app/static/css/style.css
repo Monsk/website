@@ -105,7 +105,7 @@ Author :  Evmet
 html {
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
-	
+
 	height: 100%;
 }
 body {
@@ -621,7 +621,7 @@ body.is-push-bar-full {
 	left: 0;
 	z-index: 2;
 	min-height: 100%;
-	background: #f3f3f3;
+	/*background: #f3f3f3;*/
 	padding-top: 63px;
 	z-index: 1000;
 	-webkit-transition: -webkit-transform .33s cubic-bezier(.33,0,.2,1);
@@ -902,11 +902,13 @@ body.is-push-bar-full {
 .post-fluid > div > div:first-child[style*="display:none"] ~ .post-fluid > div > div:not([style*="display:none"]) {
 	margin-top: 0;
 }
-.post-items .post-item-banner {
+.post-items, .post-item-banner {
 	position: relative;
+	text-align: center;
 }
 .post-item-banner > img {
-	width: 100%;
+	max-width: 80%;
+	max-height: 800px;
 }
 .item.active img {
 	cursor: pointer;
