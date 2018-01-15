@@ -81,11 +81,10 @@ def logout():
 def index():
   return render_template("photography.html")
 
-@app.route('/data/')
-def data():
-    query = db.session.query(BlogEntry).filter(BlogEntry.published == True).order_by(BlogEntry.timestamp.desc())
-    return render_template('data.html', object_list = query)
-
+# @app.route('/projects/')
+# def projects():
+#     query = db.session.query(BlogEntry).filter(BlogEntry.published == True).order_by(BlogEntry.timestamp.desc())
+#     return render_template('projects.html', object_list = query)
 
 @app.route('/data/create/', methods=['GET', 'POST'])
 @login_required
@@ -183,15 +182,7 @@ def delete_entry(slug):
 
 @app.route('/about/')
 def about():
-    return render_template("about2.html")
-
-# @app.route('/photography_old')
-# def photography_old():
-#   return render_template("photography_old.html")
-
-# @app.route('/photography/')
-# def photography():
-#   return render_template("photography.html")
+    return render_template("about.html")
 
 @app.route('/photography/national_parks')
 def national_parks():

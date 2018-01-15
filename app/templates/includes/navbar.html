@@ -1,30 +1,4 @@
 <!-- Navigation -->
-<!-- <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-<nav id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-        <li class="sidebar-brand">
-            <a href="/"  onclick = $("#menu-close").click(); >Simon Hunter</a>
-        </li>
-        <li>
-            <a href="/about" onclick = $("#menu-close").click(); >About me</a>
-        </li>
-        <li>
-            <a href="/data" onclick = $("#menu-close").click(); >Data</a>
-        </li>
-        <li>
-            <a href="/photography" onclick = $("#menu-close").click(); >Photography</a>
-        </li>
-        <li>
-            <a href="/travel" onclick = $("#menu-close").click(); >Travel</a>
-        </li>
-        {% if session.logged_in %}
-        <li>
-          <a href="{{ url_for('logout') }}" onclick = $("#menu-close").click(); >Log Out</a>
-        <li>
-        {% endif %}
-    </ul>
-</nav> -->
 
 <header>
   <nav class="navbar navbar-fixed-top nav-down navbar-laread">
@@ -46,24 +20,10 @@
             <ul class="dropdown-menu" role="menu">
               <li><a href="{{ url_for('national_parks') }}">US National Parks</a></li>
               <li><a href="{{ url_for('arctic') }}">The Arctic</a></li>
-              <li><a href="{{ url_for('index') }}">Norway</a></li>
-              <li><a href="{{ url_for('index') }}">...</a></li>
+              <!-- <li><a href="{{ url_for('index') }}">Norway</a></li>
+              <li><a href="{{ url_for('index') }}">...</a></li> -->
             </ul>
           </li>
-          <!-- <li>
-            <a href="{{ url_for('data') }}" class="dropdown-toggle" role="button" aria-expanded="false">BLOG</a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="about-v1.html">iPhones on Gumtree</a></li>
-              <li><a href="about-v2.html">-v2</a></li>
-              <li><a href="authors.html">Authors</a></li>
-              <li><a href="author-detail.html">Author Detail</a></li>
-              <li><a href="archive.html">Archive</a></li>
-              <li><a href="contact-v1.html">Contact v1</a></li>
-              <li><a href="contact-v2.html">-v2</a></li>
-              <li><a href="404.html">Not Found</a></li>
-              <li><a href="newsletter.html" target="_blank">Newsletter</a></li>
-            </ul>
-          </li> -->
           <li>
             <a href="/about" role="button" aria-expanded="false">ABOUT</a>
           </li>
