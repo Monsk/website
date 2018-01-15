@@ -1,3 +1,7 @@
 .DS_Store
 
+flask/
+Scripts/
+db_repository/
+
 *.pyc
