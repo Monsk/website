@@ -581,7 +581,7 @@ body.is-push-bar-full {
 	color: #fff;
 	padding: 0;
 	font-size: 18px;
-	margin: 24px 12px 0;
+	margin: 24px 12px 24px;
 	background-color: transparent;
 	border-width: 0;
 	vertical-align: top;
@@ -1048,7 +1048,7 @@ body.is-push-bar-full {
 	color: #686869;
 	text-align: justify;
 	line-height: 26px;
-	margin-bottom: 20px;
+	margin: 20px;
 	font-weight: 400;
 }
 .post-item-detail .post-item-paragraph p {
@@ -9016,7 +9016,7 @@ i.roman {
 	.container>.navbar-collapse {
 		margin-top: 64px;
 		min-width: 100%;
-		margin: 0;
+		/* margin: 0; */
 		max-height: initial;
 		overflow: hidden;
 		margin-left: -15px;
@@ -10231,7 +10231,7 @@ only screen and (                min-resolution: 2dppx){
 		width: 22px;
 	}
 	.navbar-brand {
-		background: url(../img/logo-light@2x.png) no-repeat center center;
+		background: url(../img/S_icon.png) no-repeat center center;
 		background-size: 64px 64px;
 		height: 64px;
 		width: 64px;

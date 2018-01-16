@@ -1,11 +1,10 @@
 <!-- Navigation -->
-
 <header>
   <nav class="navbar navbar-fixed-top nav-down navbar-laread">
     <div class="container">
-      <!-- <div class="navbar-header">
-        <a class="navbar-brand" href="large-image-v2-3.html"><img height="64" src="../assets/img/logo-light.png" alt=""></a>
-      </div> -->
+      <div class="navbar-header">
+        <span><img height="64" src="assets/img/S_icon.png" alt=""></span>
+      </div>
       <button type="button" class="navbar-toggle collapsed menu-collapse" data-toggle="collapse" data-target="#main-nav">
         <span class="sr-only">Toggle navigation</span>
         <i class="fa fa-plus"></i>
@@ -16,12 +15,10 @@
             <a href="{{ url_for('index') }}" role="button" aria-expanded="false">HOME</a>
           </li>
           <li>
-            <a href="#" class="dropdown-toggle" role="button" aria-expanded="false">GALLERIES</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">GALLERY</a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="{{ url_for('national_parks') }}">US National Parks</a></li>
               <li><a href="{{ url_for('arctic') }}">The Arctic</a></li>
-              <!-- <li><a href="{{ url_for('index') }}">Norway</a></li>
-              <li><a href="{{ url_for('index') }}">...</a></li> -->
             </ul>
           </li>
           <li>
