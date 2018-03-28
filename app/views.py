@@ -191,3 +191,7 @@ def national_parks():
 @app.route('/photography/arctic')
 def arctic():
   return render_template("arctic.html")
+
+@app.route('/photography/night_sky')
+def night_sky():
+  return render_template("night_sky.html")

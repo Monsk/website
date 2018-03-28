@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Simon Hunter | Photography{% endblock %}
+
+{% block content %}
+
+
+<body>
+  <div class="page-loader">
+    <div class="loader-in">Loading...</div>
+    <div class="loader-out">Loading...</div>
+  </div>
+
+
+  <div class="canvas">
+    {% include "includes/navbar.html" %}
+
+
+    <div class="container">
+      <div class="head-text">
+        <h1>Night Sky</h1>
+      </div>
+    </div>
+
+    <div class="post-fluid ">
+
+      <div class="container-fluid post-default">
+        <div class="container">
+          <div class="row post-items">
+            <div class="post-item-banner">
+              <img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1522214078/star_trails_gpx6cd.jpg" alt="" />
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+              <div class="post-item-info clearfix">
+                <div class="">
+                  Monterey, CA <br>
+                  Nikon D600   •   Tokina 11-16mm, shot at 16mm   •   500x 30s exposures
+
+                </div>
+                <div class="post-item-paragraph">
+                  <p>This was my first attempt at capturing star trails, taken between Monterey and Santa Cruz one weekend in February 2018.
+                    Taking this shot was surprisingly easy and yet there's so much here that simply can't be seen by the naked eye, or even with a telescope.
+                    Let's start with what's going on.
+                  </p>
+                  <h2>
+                    What am I looking at?
+                  </h2>
+                  <p>
+                    Firstly, we see the trails curving in different directions at the extremes of the image, which is is a direct result of the curvature of the Earth.
+                    Pretty cool, huh?
+                    In the right of the image we have stars rotating around the North Star and in the left of the image stars rotating roughly around the southern pole (there is no 'South Star').
+                  </p>
+                  <p>
+                    We also see that different stars have different colours.
+                    The star colour relates directly to the temperature of that star, which in turn is a function of the size of the star and its age.
+                    Our Sun is yellow, and so trails of a similar colour are from stars similar to our own.
+                    Blue and white trails, on the other hand, are from much hotter stars.
+                  </p>
+                  <p>
+                    Interestingly, running horizontally through the middle of the image we see numerous dotted lines.
+                    With the exposure settings I used whatever was traversing across the screen took about an hour to do so.
+                    From this, my best guess is that we're seeing the International Space Station here, though I'm open to being convinced otherwise.
+                  </p>
+                  <p>
+                    So all in all, quite a lot of cool stuff for a first attempt.
+                  </p>
+                  <h2>
+                    How it was shot
+                  </h2>
+                  <p>
+                    This was shot using my DX wide angle Tokina at 16mm, so effectively 12mm on the FX sensor of the D600.
+                    In other words, this is pretty w i d e.
+                    The first thing I learnt here is that the wider the lens you're using the longer you need to snap for to get full trails.
+                    For me this was 4 hours of 20 second exposures, 30 seconds apart.
+                    This is a long time to be shooting for; I ran this purely on battery power and it cleaned it out completely.
+                  </p>
+                  <p>
+                    With the image relatively small the star trails look pretty much continuous.
+                    However, blow this image up and you can make out the individual exposures on some of these trails.
+                    If I was to reshoot this I'd reduce the interval between exposures to make sure that all trails are continuous.
+                  </p>
+                  <p>
+                    Finally, while the colours of the trails are cool, the image lacks a focal point.
+                    Shooting star trails as a backdrop to an interesting subject would make for a much better photo.
+                    Finding such a subject is all down to better preparation.
+                  </p>
+                  <p>
+                    All in all I'm pretty happy with this as a first attempt, and importantly I learned a bunch about how to do it better next time.
+                    Hopefully I'll be able to follow up with a better image soon.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+    <!-- <div class="row baseline-post-nav">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+    <a href="large-image-v2-1.html" class="post-nav post-newer">← NEWER</a>
+    <a href="large-image-v2-3.html" class="post-nav post-older">OLDER →</a>
+  </div>
+</div>
+</div>
+</div> -->
+
+
+</body>
+
+
+{% endblock %}
