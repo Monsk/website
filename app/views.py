@@ -195,3 +195,7 @@ def arctic():
 @app.route('/photography/night_sky')
 def night_sky():
   return render_template("night_sky.html")
+
+@app.route('/pmuk/privacy_policy')
+def privacy_policy():
+    return render_template("privacy_policy.html")
