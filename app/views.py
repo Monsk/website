@@ -196,6 +196,10 @@ def arctic():
 def night_sky():
   return render_template("night_sky.html")
 
+@app.route('/photography/california')
+def california():
+  return render_template("california.html")
+
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():
     return render_template("privacy_policy.html")
