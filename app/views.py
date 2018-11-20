@@ -200,6 +200,10 @@ def night_sky():
 def california():
   return render_template("california.html")
 
+@app.route('/photography/hawaii')
+def hawaii():
+  return render_template("hawaii.html")
+
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():
     return render_template("privacy_policy.html")
