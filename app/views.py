@@ -79,7 +79,12 @@ def logout():
 
 @app.route('/')
 def index():
-    metadata = {'description': "I'm Simon Hunter, a product manager working to develop the future of healthcare, an amateur photographer and long-suffering Newcastle United fan. This is my site."}
+    metadata = {
+        "og:url": "http://www.simonhunter.co/photography.html",
+        "og:title": "Simon Hunter | Photography",
+        "og:description": "I'm Simon Hunter, a product manager working to develop the future of healthcare, an amateur photographer and long-suffering Newcastle United fan. This is my site.",
+        "og:image": "https://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1542689051/Hawaii/20181003-DSC_7691.jpg"
+    }
     return render_template("photography.html", meta=metadata)
 
 # @app.route('/projects/')

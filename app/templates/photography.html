@@ -3,7 +3,7 @@
 
 {% block metadata %}
 {% for key, item in meta.iteritems() %}
-  <meta name="{{ key }}", content="{{ item }}" />
+  <meta property="{{ key }}" content="{{ item }}" />
 {% endfor %}
 {% endblock %}
 
