@@ -79,7 +79,8 @@ def logout():
 
 @app.route('/')
 def index():
-  return render_template("photography.html")
+    metadata = {'description': "I'm Simon Hunter, a product manager working to develop the future of healthcare, an amateur photographer and long-suffering Newcastle United fan. This is my site."}
+    return render_template("photography.html", meta=metadata)
 
 # @app.route('/projects/')
 # def projects():

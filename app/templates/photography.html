@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Simon Hunter | Photography{% endblock %}
 
+{% block metadata %}
+{% for key, item in meta.iteritems() %}
+  <meta name="{{ key }}", content="{{ item }}" />
+{% endfor %}
+{% endblock %}
+
 {% block content %}
 
 
