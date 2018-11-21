@@ -36,6 +36,23 @@ def slugify(text, delim=u'-'):
         result.extend(unidecode(word).split())
     return unicode(delim.join(result))
 
+def template_og_metadata(metadata):
+    return {
+        "og:type": "website",
+        "og:url": metadata["url"],
+        "og:title": metadata["title"],
+        "og:description": metadata["description"],
+        "og:image": metadata["img"]
+    }
+
+def template_twitter_metadata(metadata):
+    return {
+        "twitter:card": "summary_large_image",
+        "twitter:url": metadata["url"],
+        "twitter:title": metadata["title"],
+        "twitter:description": metadata["description"]
+    }
+
 @app.template_filter('clean_querystring')
 def clean_querystring(request_args, *keys_to_remove, **new_values):
     # We'll use this template filter in the pagination include. This filter
@@ -79,13 +96,17 @@ def logout():
 
 @app.route('/')
 def index():
-    metadata = {
-        "og:url": "http://www.simonhunter.co/photography.html",
-        "og:title": "Simon Hunter | Photography",
-        "og:description": "I'm Simon Hunter, a product manager working to develop the future of healthcare, an amateur photographer and long-suffering Newcastle United fan. This is my site.",
-        "og:image": "https://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1542689051/Hawaii/20181003-DSC_7691.jpg"
+    metaconfig = {
+        'title': "Simon Hunter | Photography",
+        'url': "http://www.simonhunter.co/photography.html",
+        'description': "I'm Simon Hunter, a product manager working to develop the future of healthcare, an amateur photographer and long-suffering Newcastle United fan. This is my site.",
+        'img': "https://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1542689051/Hawaii/20181003-DSC_7691.jpg"
     }
-    return render_template("photography.html", meta=metadata)
+    return render_template(
+        "photography.html",
+        og=template_og_metadata(metaconfig),
+        twitter=template_twitter_metadata(metaconfig)
+        )
 
 # @app.route('/projects/')
 # def projects():
@@ -192,11 +213,31 @@ def about():
 
 @app.route('/photography/national_parks')
 def national_parks():
-  return render_template("nationalparks.html")
+    metaconfig = {
+        'title': "Simon Hunter | US National Parks",
+        'url': "http://www.simonhunter.co/photography/national_parks.html",
+        'description': "Photos taken during a week spent on a National Parks tour of the American Southwest.",
+        'img': "http://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1513640291/DSC_5505_fuagnr.jpg"
+    }
+    return render_template(
+        "nationalparks.html",
+        og=template_og_metadata(metaconfig),
+        twitter=template_twitter_metadata(metaconfig)
+        )
 
 @app.route('/photography/arctic')
 def arctic():
-  return render_template("arctic.html")
+    metaconfig = {
+        'title': "Simon Hunter | Svalbard",
+        'url': "http://www.simonhunter.co/photography/arctic.html",
+        'description': "Photos taken on a circumnavigation of Svalbard in the arctic archipelago of Spitsbergen.",
+        'img': "http://res.cloudinary.com/monsk/image/upload/v1470589280/Svalbard/DSC_2125.jpg"
+    }
+    return render_template(
+        "arctic.html",
+        og=template_og_metadata(metaconfig),
+        twitter=template_twitter_metadata(metaconfig)
+        )
 
 @app.route('/photography/night_sky')
 def night_sky():
@@ -204,11 +245,31 @@ def night_sky():
 
 @app.route('/photography/california')
 def california():
-  return render_template("california.html")
+    metaconfig = {
+        'title': "Simon Hunter | California",
+        'url': "http://www.simonhunter.co/photography.html",
+        'description': "Photos taken out and about in The Golden State",
+        'img': "https://res.cloudinary.com/monsk/image/upload/v1538024144/DSC_7526-2_elq4xn.jpg"
+    }
+    return render_template(
+        "california.html",
+        og=template_og_metadata(metaconfig),
+        twitter=template_twitter_metadata(metaconfig)
+        )
 
 @app.route('/photography/hawaii')
 def hawaii():
-  return render_template("hawaii.html")
+    metaconfig = {
+        'title': "Simon Hunter | Hawaii",
+        'url': "http://www.simonhunter.co/photography/hawaii.html",
+        'description': "Photos taken on a 10 day vacation to Hawaii, Big Island",
+        'img': "https://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1542689051/Hawaii/20181003-DSC_7691.jpg"
+    }
+    return render_template(
+        "hawaii.html",
+        og=template_og_metadata(metaconfig),
+        twitter=template_twitter_metadata(metaconfig)
+        )
 
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():

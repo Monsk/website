@@ -1,0 +1,6 @@
+{% for key, item in og.iteritems() %}
+  <meta property="{{ key }}" content="{{ item }}" />
+{% endfor %}
+{% for key, item in twitter.iteritems() %}
+  <meta name="{{ key }}" value="{{ item }}" />
+{% endfor %}
