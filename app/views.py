@@ -50,7 +50,8 @@ def template_twitter_metadata(metadata):
         "twitter:card": "summary_large_image",
         "twitter:url": metadata["url"],
         "twitter:title": metadata["title"],
-        "twitter:description": metadata["description"]
+        "twitter:description": metadata["description"],
+        "twitter:img": metadata["img"]
     }
 
 @app.template_filter('clean_querystring')
@@ -217,7 +218,7 @@ def national_parks():
         'title': "Simon Hunter | US National Parks",
         'url': "http://www.simonhunter.co/photography/national_parks.html",
         'description': "Photos taken during a week spent on a National Parks tour of the American Southwest.",
-        'img': "http://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1513640291/DSC_5505_fuagnr.jpg"
+        'img': "http://res.cloudinary.com/monsk/image/upload/c_scale,h_400/v1513640291/DSC_5505_fuagnr.jpg"
     }
     return render_template(
         "nationalparks.html",
@@ -263,7 +264,7 @@ def hawaii():
         'title': "Simon Hunter | Hawaii",
         'url': "http://www.simonhunter.co/photography/hawaii.html",
         'description': "Photos taken on a 10 day vacation to Hawaii, Big Island",
-        'img': "https://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1542689051/Hawaii/20181003-DSC_7691.jpg"
+        'img': "https://res.cloudinary.com/monsk/image/upload/c_scale,h_400/v1542689051/Hawaii/20181003-DSC_7691.jpg"
     }
     return render_template(
         "hawaii.html",
