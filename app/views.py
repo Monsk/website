@@ -210,7 +210,17 @@ def delete_entry(slug):
 
 @app.route('/about/')
 def about():
-    return render_template("about.html")
+    metaconfig = {
+        'title': "Simon Hunter | About",
+        'url': "http://www.simonhunter.co/about.html",
+        'description': "Director of Product at Hinge Health where we develop the future of healthcare delivery.",
+        'img': "/static/img/me.jpg"
+    }
+    return render_template(
+        "about.html",
+        og=template_og_metadata(metaconfig),
+        twitter=template_twitter_metadata(metaconfig)
+        )
 
 @app.route('/photography/national_parks')
 def national_parks():
