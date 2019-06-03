@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Simon Hunter | Blog{% endblock %}
+
+
+{% block content %}
+
+{% include "includes/navbar.html" %}
+
+<div class="container">
+	<div class="head-text">
+		<h1>Blog</h1>
+		<p class="lead-text">Scratching my data itch</p>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="post-mediums">
+
+				{% if session.logged_in %}
+				<a class="btn btn-default" href="{{ url_for('drafts') }}">View drafts</a>
+				{% endif %}
+
+
+				{% for entry in object_list %}
+				{% if search %}
+				{% set entry = entry.entry %}
+				{% endif %}
+				<div class="row post-medium">
+					<div class="col-md-5">
+						<div class="row"><img src="{{ entry.image_path() }}" /></div>
+					</div>
+					<div class="col-md-7">
+						<div class="post-item">
+							<div class="medium-post-box clearfix">
+									<div class="pm-top-info clearfix">
+										<div class="pull-left">
+											<a href="#">DATA</a>
+										</div>
+								</div>
+								<div class="post-item-paragraph">
+								<h2><a href="{% if entry.published %}{{ url_for('detail', slug=entry.slug) }}{% else %}{{ url_for('edit', slug=entry.slug) }}{% endif %}">{{ entry.title }}</a></h2>
+								<p class="ellipsis-readmore">{{ entry.subtitle }}</p>
+							</div>
+							<div class="pm-bottom-info clearfix">
+								<div class="pull-left">
+									<time class="published updated" datetime="{{ entry.date }}">{{ entry.timestamp.strftime('%m/%d/%Y') }}</time>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+{% else %}
+<p>No entries have been created yet.</p>
+{% endfor %}
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- </body> -->
+
+{% endblock %}

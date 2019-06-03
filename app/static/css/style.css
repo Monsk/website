@@ -954,7 +954,7 @@ body.is-push-bar-full {
 	margin-bottom: 5px;
 }
 .post-item-paragraph {
-	padding: 31px 104px 20px	;
+	padding: 0 29px	;
 	position: relative;
 }
 .post-item-paragraph h2 {
@@ -1048,7 +1048,7 @@ body.is-push-bar-full {
 	color: #686869;
 	text-align: justify;
 	line-height: 26px;
-	margin: 20px;
+	margin-bottom: 20px;
 	font-weight: 400;
 }
 .post-item-detail .post-item-paragraph p {

@@ -109,12 +109,13 @@ def index():
         twitter=template_twitter_metadata(metaconfig)
         )
 
-# @app.route('/projects/')
-# def projects():
-#     query = db.session.query(BlogEntry).filter(BlogEntry.published == True).order_by(BlogEntry.timestamp.desc())
-#     return render_template('projects.html', object_list = query)
+@app.route('/blog/')
+def blog():
+    query = db.session.query(BlogEntry).filter(BlogEntry.published == True).order_by(BlogEntry.timestamp.desc())
+    print(query)
+    return render_template('blog.html', object_list = query)
 
-@app.route('/data/create/', methods=['GET', 'POST'])
+@app.route('/blog/create/', methods=['GET', 'POST'])
 @login_required
 def create():
     if request.method == 'POST':
@@ -150,13 +151,13 @@ def create():
             flash('Title and Content are required.', 'danger')
     return render_template('create.html')
 
-@app.route('/data/drafts/')
+@app.route('/blog/drafts/')
 @login_required
 def drafts():
     query = db.session.query(BlogEntry).filter(BlogEntry.published == False).order_by(BlogEntry.timestamp.desc())
-    return render_template('data.html', object_list=query)
+    return render_template('blog.html', object_list=query)
 
-@app.route('/<slug>/')
+@app.route('/blog/<slug>/')
 def detail(slug):
     print(slug)
     if session.get('logged_in'):
@@ -166,7 +167,7 @@ def detail(slug):
     entry = get_object_or_404(BlogEntry, BlogEntry.slug == slug)
     return render_template('detail.html', entry=entry)
 
-@app.route('/<slug>/edit/', methods=['GET', 'POST'])
+@app.route('/blog/<slug>/edit/', methods=['GET', 'POST'])
 @login_required
 def edit(slug):
     entry = get_object_or_404(BlogEntry, BlogEntry.slug == slug)
@@ -184,7 +185,8 @@ def edit(slug):
             entry.slug = slugify(request.form.get('title'))
             entry.subtitle = request.form['subtitle']
             entry.content = request.form['content']
-            entry.published = request.form.get('published') or False
+            if request.form.get('published'):
+                entry.published = True
 
             db.session.add(entry)
             db.session.commit()
