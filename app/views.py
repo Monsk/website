@@ -112,7 +112,6 @@ def index():
 @app.route('/blog/')
 def blog():
     query = db.session.query(BlogEntry).filter(BlogEntry.published == True).order_by(BlogEntry.timestamp.desc())
-    print(query)
     return render_template('blog.html', object_list = query)
 
 @app.route('/blog/create/', methods=['GET', 'POST'])

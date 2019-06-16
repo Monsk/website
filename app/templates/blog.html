@@ -22,14 +22,13 @@
 				<a class="btn btn-default" href="{{ url_for('drafts') }}">View drafts</a>
 				{% endif %}
 
-
 				{% for entry in object_list %}
 				{% if search %}
 				{% set entry = entry.entry %}
 				{% endif %}
 				<div class="row post-medium">
 					<div class="col-md-5">
-						<div class="row"><img src="{{ entry.image_path() }}" /></div>
+						<div class="row"><img src="{{ entry.image_url() }}" /></div>
 					</div>
 					<div class="col-md-7">
 						<div class="post-item">

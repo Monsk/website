@@ -39,9 +39,10 @@ class BlogEntry(db.Model):
             maxwidth=app.config['SITE_WIDTH'])
         return Markup(oembed_content)
 
-    @property
-    def image_path(self):
+    # @property
+    def image_url(self):
         return cloudinary.utils.cloudinary_url(self.image_filename)[0]
+
 
     # def save(self, *args, **kwargs):
     #     # Generate a URL-friendly representation of the entry's title.
