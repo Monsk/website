@@ -155,7 +155,7 @@ p {
 	font-size: 22px;
 	font-weight: 300;
 }
-h1, h2, h3, h4, h5, h6 { line-height: 24px; color: #3d3d3f; }
+h2, h3, h4, h5, h6 { line-height: 24px; color: #3d3d3f; }
 h1 { font-size: 36px; font-weight: 400; }
 h2 { font-size: 24px; font-weight: 400; }
 h3 { font-size: 20px; font-weight: 400; }
@@ -956,6 +956,14 @@ body.is-push-bar-full {
 .post-item-paragraph {
 	padding: 0 29px	;
 	position: relative;
+}
+.post-item-paragraph.blog-content {
+	/* Added by Simon */
+	padding: 60px 0 80px	;
+}
+.blog-content.lead-text {
+	/* Added by Simon */
+	margin-bottom: 30px	;
 }
 .post-item-paragraph h2 {
 	font-size: 26px;
@@ -7561,6 +7569,31 @@ i.roman {
 	text-decoration: none;
 }
 .more-down:focus {
+	color: #a28671;
+}
+.blog-close {
+	/* Added by Simon */
+	position: fixed;
+	right: 0;
+	background-color: #848483;
+	color: #FFF;
+	width: 62px;
+	height: 62px;
+	margin: 70px 40px 0;
+	display: block;
+	font-size: 20px;
+	text-align: center;
+	line-height: 62px;
+	opacity: 0.4;
+}
+.blog-close:hover {
+	/* Added by Simon */
+	background-color: #bdbdbd;
+	color: #fff;
+	text-decoration: none;
+}
+.blog-close:focus {
+	/* Added by Simon */
 	color: #a28671;
 }
 .post-item-info .post-tags {

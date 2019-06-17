@@ -32,23 +32,15 @@
 		{% if session.logged_in %}
 		<a class="btn btn-default" href="{{ url_for('edit', slug=entry.slug) }}">Edit entry</a>
 		{% endif %}
+    <a class="blog-close" href="{{ url_for('blog') }}"><i class="fa fa-close fa-lg"></i></a>
 
-		<div id="blog-body" class="qr-white-theme">
-
-				<div class="container">
-					<div class="head-text">
-						<h1>{{ entry.title }}</h1>
-						<p class="lead-text">{{ entry.subtitle }}</p>
-					</div>
-				</div>
+		<div class="qr-white-theme">
 		    <div class="container">
 		        <div class="col-md-8 col-md-offset-2">
-		            <div class="qr-content post-item-paragraph">
-
-
-		            {{ entry.content | safe }}
-
-
+		            <div class="post-item-paragraph blog-content">
+                  <h1>{{ entry.title }}</h1>
+                  <div class="lead-text blog-content">{{ entry.subtitle }}</div>
+		                {{ entry.content | safe }}
 		            </div>
 		        </div>
 		    </div>
