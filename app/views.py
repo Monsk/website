@@ -283,6 +283,20 @@ def hawaii():
         twitter=template_twitter_metadata(metaconfig)
         )
 
+@app.route('/photography/vancouver_island')
+def vancouver_island():
+    metaconfig = {
+        'title': "Simon Hunter | Vancouver Island",
+        'url': "http://www.simonhunter.co/photography/vancouver_island.html",
+        'description': "Photos taken on a 10 day vacation to Vancouver Island",
+        'img': "https://res.cloudinary.com/monsk/image/upload/c_scale,h_400/v1564355825/Vancouver%20Island/DSC_9171.jpg"
+    }
+    return render_template(
+        "vancouver.html",
+        og=template_og_metadata(metaconfig),
+        twitter=template_twitter_metadata(metaconfig)
+        )
+
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():
     return render_template("privacy_policy.html")

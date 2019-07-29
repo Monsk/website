@@ -29,8 +29,35 @@
       <div class="container-fluid post-default">
         <div class="container">
           <div class="row post-items">
+            <a href="{{ url_for('vancouver_island') }}" class="post-item-banner">
+              <img
+                src="https://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1564355825/Vancouver%20Island/DSC_9171.jpg"
+                alt="" />
+            </a>
+            <div class="col-md-10 col-md-offset-1">
+              <div class="post-item post-item-centered">
+                <div class="post-item-paragraph">
+                  <span class="date">July, 2019</span>
+                  <h2><a href="{{ url_for('vancouver_island') }}">VANCOUVER ISLAND</a></h2>
+                  <p>Vancouver Island, situated a 90 min ferry ride west of Vancouver city, is a jewel. Bright green
+                    rainforests line the Pacific coast, white sand beaches fill rocky coves, and snow-capped mountains 
+                    harbour vast sapphire lakes. Emerald rivers run along valleys, at times thundering through gorges, at times so serene they appear frozen <a
+                      href="{{ url_for('vancouver_island') }}" class="more">[...]</a></p>
+                </div>
+                <div class="post-item-info clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid post-default">
+        <div class="container">
+          <div class="row post-items">
             <a href="{{ url_for('hawaii') }}" class="post-item-banner">
-              <img src="https://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1542689051/Hawaii/20181003-DSC_7691.jpg" alt="" />
+              <img
+                src="https://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1542689051/Hawaii/20181003-DSC_7691.jpg"
+                alt="" />
             </a>
             <div class="col-md-10 col-md-offset-1">
               <div class="post-item post-item-centered">
@@ -40,9 +67,10 @@
                   <p>The Big Island measures only 75 miles
                     across and yet is home to a huge variety of climates, scenery and culture.
                     Over the 10 days we spent on the island we scuba-dived with giant yet graceful manta rays,
-                    watched the sun set while waves crashed against hardened lava flows, <a href="{{ url_for('hawaii') }}" class="more">[...]</a></p>
-                  </div>
-                  <div class="post-item-info clearfix"></div>
+                    watched the sun set while waves crashed against hardened lava flows, <a
+                      href="{{ url_for('hawaii') }}" class="more">[...]</a></p>
+                </div>
+                <div class="post-item-info clearfix"></div>
               </div>
             </div>
           </div>
@@ -53,17 +81,20 @@
         <div class="container">
           <div class="row post-items">
             <a href="{{ url_for('national_parks') }}" class="post-item-banner">
-              <img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1513640291/DSC_5505_fuagnr.jpg" alt="" />
+              <img src="http://res.cloudinary.com/monsk/image/upload/c_scale,h_1600/v1513640291/DSC_5505_fuagnr.jpg"
+                alt="" />
             </a>
             <div class="col-md-10 col-md-offset-1">
               <div class="post-item post-item-centered">
                 <div class="post-item-paragraph">
                   <span class="date">December, 2017</span>
                   <h2><a href="{{ url_for('national_parks') }}">US NATIONAL PARKS</a></h2>
-                  <p>A week spent on a National Parks tour of the American Southwest. After landing in Las Vegas we headed north and across the border into Utah.
-                    A hike up Angel's Landing in Zion National Park was followed by a day in Bryce Canyon <a href="{{ url_for('national_parks') }}" class="more">[...]</a></p>
-                  </div>
-                  <div class="post-item-info clearfix"></div>
+                  <p>A week spent on a National Parks tour of the American Southwest. After landing in Las Vegas we
+                    headed north and across the border into Utah.
+                    A hike up Angel's Landing in Zion National Park was followed by a day in Bryce Canyon <a
+                      href="{{ url_for('national_parks') }}" class="more">[...]</a></p>
+                </div>
+                <div class="post-item-info clearfix"></div>
               </div>
             </div>
           </div>
@@ -74,15 +105,18 @@
         <div class="container">
           <div class="row post-items">
             <a href="{{ url_for('arctic') }}" class="post-item-banner">
-              <img class="lazy" data-src="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" alt="" />
+              <img class="lazy"
+                data-src="http://res.cloudinary.com/monsk/image/upload/v1470589402/Svalbard/DSC_3019.jpg" alt="" />
             </a>
-          <div class="col-md-10 col-md-offset-1">
-            <div class="post-item post-item-centered">
-              <div class="post-item-paragraph">
-                <span class="date">June, 2016</span>
-                <h2><a href="{{ url_for('arctic') }}">SVALBARD</a></h2>
-                <p>A ten day circumnavigation of Spitsbergen, Svalbard. Situated half way between Norway and the North Pole Svalbard is home to a vast array of wildlife and varying climates.
-                  While the interior is a glacial wilderness the coast supports polar bears, walrus, <a href="{{ url_for('arctic') }}" class="more">[...]</a></p>
+            <div class="col-md-10 col-md-offset-1">
+              <div class="post-item post-item-centered">
+                <div class="post-item-paragraph">
+                  <span class="date">June, 2016</span>
+                  <h2><a href="{{ url_for('arctic') }}">SVALBARD</a></h2>
+                  <p>A ten day circumnavigation of Spitsbergen, Svalbard. Situated half way between Norway and the North
+                    Pole Svalbard is home to a vast array of wildlife and varying climates.
+                    While the interior is a glacial wilderness the coast supports polar bears, walrus, <a
+                      href="{{ url_for('arctic') }}" class="more">[...]</a></p>
                 </div>
                 <div class="post-item-info clearfix"></div>
               </div>
@@ -92,13 +126,13 @@
       </div>
 
 
-</div>
+    </div>
 
 
 
 
 
-<!-- <div class="row baseline-post-nav">
+    <!-- <div class="row baseline-post-nav">
 <div class="container">
 <div class="row">
 <div class="col-md-10 col-md-offset-1">
