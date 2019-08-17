@@ -300,3 +300,7 @@ def vancouver_island():
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():
     return render_template("privacy_policy.html")
+
+@app.route('/.well-known/acme-challenge/loAiyo-UnkTrstGwsK4iqxH__0fisBlLR9G-k__D1aY')
+def ssl_cert():
+    return 'loAiyo-UnkTrstGwsK4iqxH__0fisBlLR9G-k__D1aY.pIBhmU-GAS-cq67LCfxu3vFKvor0K-LcHjw4GVe2H6I'
