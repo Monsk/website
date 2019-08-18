@@ -3,6 +3,7 @@ import re
 import cloudinary.utils
 from sqlalchemy.sql import select
 from unidecode import unidecode
+from flask_login import UserMixin
 
 
 from app import db
@@ -101,9 +102,21 @@ class BlogEntry(db.Model):
     def __repr__(self):  # pragma: no cover
         return '<BlogEntry %r>' % (self.title)
 
-# class FTSEntry(FTSModel):
-#     entry_id = IntegerField(BlogEntry)
-#     content = TextField()
-#
-#     class Meta:
-#         database = database
+class User(db.Model, UserMixin):
+    __tablename__ = "user"
+    id = db.Column(db.String(64), primary_key=True)
+    name = db.Column(db.String(64), index=True)
+    email = db.Column(db.String(64), unique=True, index=True)
+    profile_pic = db.Column(db.String(120), index=True)
+    
+    @staticmethod
+    def get(user_id):
+        user = db.session.query(User).filter(User.id == user_id).first()
+        if not user:
+            print('No user')
+            return None
+
+        user = User(
+            id=user.id, name=user.name, email=user.email, profile_pic=user.profile_pic
+        )
+        return user

@@ -9,7 +9,7 @@ ADMIN_PASSWORD = 'secret'
 
 # The secret key is used internally by Flask to encrypt session data stored
 # in cookies. Make this unique for your app.
-SECRET_KEY = 'shhh, secret!'
+# SECRET_KEY = 'shhh, secret!'
 
 # This is used by micawber, which will attempt to generate rich media
 # embedded objects with maxwidth=800.
@@ -27,4 +27,11 @@ cloudinary.config(
     cloud_name = "monsk",
     api_key = "551158294957374",
     api_secret = "_cQkUqesUzbKWM7b26LJUpp1mlc"
+)
+
+# OAuth2 Configuration
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
+GOOGLE_DISCOVERY_URL = (
+    "https://accounts.google.com/.well-known/openid-configuration"
 )

@@ -1,25 +1,45 @@
 import functools
 import re
+import json
 from unidecode import unidecode
 import cloudinary.uploader
-
-from sqlalchemy.orm import exc
+from flask import (
+    Flask, 
+    flash, 
+    Markup, 
+    redirect, 
+    render_template, 
+    request,
+    Response, 
+    session, 
+    url_for,
+)
+from flask_login import (
+    LoginManager,
+    current_user,
+    login_required,
+    login_user,
+    logout_user,
+)
+import requests
+# from sqlalchemy.orm import exc
+from sqlalchemy import exc
 from werkzeug.exceptions import abort
 
-from flask import (Flask, flash, Markup, redirect, render_template, request,
-                   Response, session, url_for)
-
-from app import app, db
-from .models import BlogEntry
+from app import app, db, client
+from .models import BlogEntry, User
 
 
-def login_required(fn):
-    @functools.wraps(fn)
-    def inner(*args, **kwargs):
-        if session.get('logged_in'):
-            return fn(*args, **kwargs)
-        return redirect(url_for('login', next=request.path))
-    return inner
+# def login_required(fn):
+#     @functools.wraps(fn)
+#     def inner(*args, **kwargs):
+#         if session.get('logged_in'):
+#             return fn(*args, **kwargs)
+#         return redirect(url_for('login', next=request.path))
+#     return inner
+
+def get_google_provider_cfg():
+    return requests.get(app.config['GOOGLE_DISCOVERY_URL']).json()
 
 def get_object_or_404(model, *criterion):
     try:
@@ -72,28 +92,119 @@ def not_found(exc):
     return render_template('404.html'), 404
 
 
-@app.route('/login/', methods=['GET', 'POST'])
-def login():
-    next_url = request.args.get('next') or request.form.get('next')
-    if request.method == 'POST' and request.form.get('password'):
-        password = request.form.get('password')
-        # TODO: If using a one-way hash, you would also hash the user-submitted
-        # password and do the comparison on the hashed versions.
-        if password == app.config['ADMIN_PASSWORD']:
-            session['logged_in'] = True
-            session.permanent = True  # Use cookie to store session.
-            flash('You are now logged in.', 'success')
-            return redirect(next_url or url_for('index'))
-        else:
-            flash('Incorrect password.', 'danger')
-    return render_template('login.html', next_url=next_url)
+# @app.route('/login/', methods=['GET', 'POST'])
+# def login():
+#     next_url = request.args.get('next') or request.form.get('next')
+#     if request.method == 'POST' and request.form.get('password'):
+#         password = request.form.get('password')
+#         # TODO: If using a one-way hash, you would also hash the user-submitted
+#         # password and do the comparison on the hashed versions.
+#         if password == app.config['ADMIN_PASSWORD']:
+#             session['logged_in'] = True
+#             session.permanent = True  # Use cookie to store session.
+#             flash('You are now logged in.', 'success')
+#             return redirect(next_url or url_for('index'))
+#         else:
+#             flash('Incorrect password.', 'danger')
+#     return render_template('login.html', next_url=next_url)
 
-@app.route('/logout/', methods=['GET', 'POST'])
+@app.route("/login")
+def login():
+    # Find out what URL to hit for Google login
+    google_provider_cfg = get_google_provider_cfg()
+    print(google_provider_cfg["authorization_endpoint"])
+    authorization_endpoint = google_provider_cfg["authorization_endpoint"]
+
+    # Use library to construct the request for Google login and provide
+    # scopes that let you retrieve user's profile from Google
+    request_uri = client.prepare_request_uri(
+        authorization_endpoint,
+        redirect_uri=request.base_url + "/callback",
+        scope=["openid", "email", "profile"],
+    )
+    return redirect(request_uri)
+
+@app.route("/login/callback")
+def callback():
+    # Get authorization code Google sent back to you
+    code = request.args.get("code")
+
+        # Find out what URL to hit to get tokens that allow you to ask for
+    # things on behalf of a user
+    google_provider_cfg = get_google_provider_cfg()
+    token_endpoint = google_provider_cfg["token_endpoint"]
+
+    # Prepare and send request to get tokens! Yay tokens!
+    token_url, headers, body = client.prepare_token_request(
+        token_endpoint,
+        authorization_response=request.url,
+        redirect_url=request.base_url,
+        code=code,
+    )
+    token_response = requests.post(
+        token_url,
+        headers=headers,
+        data=body,
+        auth=(app.config['GOOGLE_CLIENT_ID'], app.config['GOOGLE_CLIENT_SECRET']),
+    )
+
+    # Parse the tokens!
+    client.parse_request_body_response(json.dumps(token_response.json()))
+
+    # Now that we have tokens (yay) let's find and hit URL
+    # from Google that gives you user's profile information,
+    # including their Google Profile Image and Email
+    userinfo_endpoint = google_provider_cfg["userinfo_endpoint"]
+    uri, headers, body = client.add_token(userinfo_endpoint)
+    userinfo_response = requests.get(uri, headers=headers, data=body)
+
+    # We want to make sure their email is verified.
+    # The user authenticated with Google, authorized our
+    # app, and now we've verified their email through Google!
+    if userinfo_response.json().get("email_verified"):
+        unique_id = userinfo_response.json()["sub"]
+        users_email = userinfo_response.json()["email"]
+        picture = userinfo_response.json()["picture"]
+        users_name = userinfo_response.json()["given_name"]
+    else:
+        return "User email not available or not verified by Google.", 400
+
+    # Create a user in our db with the information provided
+    # by Google
+    user = User(
+        id=unique_id, name=users_name, email=users_email, profile_pic=picture
+    )
+    # user = User(
+    #     id='1', name='simon_test', email='simon@test.com', profile_pic='img'
+    # )
+
+    # Doesn't exist? Add to database
+    if not User.get(unique_id):
+        try:
+            db.session.add(user)
+            db.session.commit()
+        except exc.IntegrityError as e:
+            db.session().rollback()
+            print(e)
+
+    # Begin user session by logging the user in
+    login_user(user)
+
+    # Send user back to homepage
+    return redirect(url_for("index"))
+
+@app.route("/logout")
+@login_required
 def logout():
-    if request.method == 'POST':
-        session.clear()
-        return redirect(url_for('login'))
-    return render_template('logout.html')
+    logout_user()
+    return redirect(url_for("index"))
+
+# @app.route('/logout/', methods=['GET', 'POST'])
+# def logout():
+#     if request.method == 'POST':
+#         session.clear()
+#         return redirect(url_for('login'))
+#     return render_template('logout.html')
 
 @app.route('/')
 def index():
