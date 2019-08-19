@@ -150,13 +150,13 @@ def callback():
     )
 
     # Doesn't exist? Add to database. Commented to prevent sign-ups
-    if not User.get(unique_id):
-        try:
-            db.session.add(user)
-            db.session.commit()
-        except exc.IntegrityError as e:
-            db.session().rollback()
-            print(e)
+    # if not User.get(unique_id):
+    #     try:
+    #         db.session.add(user)
+    #         db.session.commit()
+    #     except exc.IntegrityError as e:
+    #         db.session().rollback()
+    #         print(e)
 
     # Begin user session by logging the user in
     login_user(user)
