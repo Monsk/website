@@ -113,7 +113,6 @@ class User(db.Model, UserMixin):
     def get(user_id):
         user = db.session.query(User).filter(User.id == user_id).first()
         if not user:
-            print('No user')
             return None
 
         user = User(

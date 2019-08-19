@@ -23,20 +23,11 @@ from flask_login import (
 )
 import requests
 # from sqlalchemy.orm import exc
-from sqlalchemy import exc
+from sqlalchemy.orm import exc
 from werkzeug.exceptions import abort
 
 from app import app, db, client
 from .models import BlogEntry, User
-
-
-# def login_required(fn):
-#     @functools.wraps(fn)
-#     def inner(*args, **kwargs):
-#         if session.get('logged_in'):
-#             return fn(*args, **kwargs)
-#         return redirect(url_for('login', next=request.path))
-#     return inner
 
 def get_google_provider_cfg():
     return requests.get(app.config['GOOGLE_DISCOVERY_URL']).json()
@@ -90,23 +81,6 @@ def clean_querystring(request_args, *keys_to_remove, **new_values):
 @app.errorhandler(404)
 def not_found(exc):
     return render_template('404.html'), 404
-
-
-# @app.route('/login/', methods=['GET', 'POST'])
-# def login():
-#     next_url = request.args.get('next') or request.form.get('next')
-#     if request.method == 'POST' and request.form.get('password'):
-#         password = request.form.get('password')
-#         # TODO: If using a one-way hash, you would also hash the user-submitted
-#         # password and do the comparison on the hashed versions.
-#         if password == app.config['ADMIN_PASSWORD']:
-#             session['logged_in'] = True
-#             session.permanent = True  # Use cookie to store session.
-#             flash('You are now logged in.', 'success')
-#             return redirect(next_url or url_for('index'))
-#         else:
-#             flash('Incorrect password.', 'danger')
-#     return render_template('login.html', next_url=next_url)
 
 @app.route("/login")
 def login():
@@ -174,18 +148,15 @@ def callback():
     user = User(
         id=unique_id, name=users_name, email=users_email, profile_pic=picture
     )
-    # user = User(
-    #     id='1', name='simon_test', email='simon@test.com', profile_pic='img'
-    # )
 
-    # Doesn't exist? Add to database
-    if not User.get(unique_id):
-        try:
-            db.session.add(user)
-            db.session.commit()
-        except exc.IntegrityError as e:
-            db.session().rollback()
-            print(e)
+    # Doesn't exist? Add to database. Commented to prevent sign-ups
+    # if not User.get(unique_id):
+    #     try:
+    #         db.session.add(user)
+    #         db.session.commit()
+    #     except exc.IntegrityError as e:
+    #         db.session().rollback()
+    #         print(e)
 
     # Begin user session by logging the user in
     login_user(user)
@@ -198,13 +169,6 @@ def callback():
 def logout():
     logout_user()
     return redirect(url_for("index"))
-
-# @app.route('/logout/', methods=['GET', 'POST'])
-# def logout():
-#     if request.method == 'POST':
-#         session.clear()
-#         return redirect(url_for('login'))
-#     return render_template('logout.html')
 
 @app.route('/')
 def index():
