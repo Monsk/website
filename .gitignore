@@ -3,6 +3,5 @@
 
 flask/
 Scripts/
-db_repository/
 
 *.pyc
