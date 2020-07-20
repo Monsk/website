@@ -1,7 +1,9 @@
 .DS_Store
 .vscode
 
-flask/
-Scripts/
+flask
+Scripts
 
 *.pyc
+
+app.db
