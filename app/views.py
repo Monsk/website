@@ -35,7 +35,7 @@ def get_google_provider_cfg():
 def get_object_or_404(model, *criterion):
     try:
         return db.session.query(model).filter(*criterion).one()
-    except exc.NoResultFound, exc.MultipleResultsFound:
+    except (exc.NoResultFound, exc.MultipleResultsFound):
         abort(404)
 
 _punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')

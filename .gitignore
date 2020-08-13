@@ -1,7 +1,10 @@
 .DS_Store
 .vscode
 
-flask/
+cert.pem
+key.pem
+
+venv/
 Scripts/
 
 *.pyc

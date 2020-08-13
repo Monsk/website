@@ -20,7 +20,7 @@ client = WebApplicationClient(app.config['GOOGLE_CLIENT_ID'])
 
 db = SQLAlchemy(app)
 from app import views, models
-from models import User
+from . models import User
 
 # Flask-Login helper to retrieve a user from our db
 @login_manager.user_loader
