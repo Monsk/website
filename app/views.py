@@ -26,7 +26,7 @@ import requests
 from sqlalchemy.orm import exc
 from werkzeug.exceptions import abort
 
-from app import app, db, client
+from app import app, db, client, contentfulClient
 from .models import BlogEntry, User
 
 def get_google_provider_cfg():
@@ -375,3 +375,13 @@ def vancouver_island():
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():
     return render_template("privacy_policy.html")
+
+@app.route('/content')
+def content():
+    entries = contentfulClient.entries()
+    
+    for entry in entries:
+        print(entry.title)
+
+    return('Success')
+
