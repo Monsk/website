@@ -3,12 +3,18 @@ from flask import Flask, redirect, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from oauthlib.oauth2 import WebApplicationClient
+from dotenv import load_dotenv
+
+# Load dotenv in the base root
+APP_ROOT = os.path.join(os.path.dirname(__file__), '..')   # refers to application_top
+dotenv_path = os.path.join(APP_ROOT, '.env')
+load_dotenv(dotenv_path)
 
 
 # Create a Flask WSGI app and configure it using values from the module.
 app = Flask(__name__)
 app.config.from_object('config')
-app.secret_key = os.environ.get("SECRET_KEY") or os.urandom(24)
+app.secret_key = os.getenv("SECRET_KEY") or os.urandom(24)
 
 # User session management setup
 # https://flask-login.readthedocs.io/en/latest
@@ -28,7 +34,7 @@ def load_user(user_id):
     return User.get(user_id)
 
 
-if os.environ.get('HEROKU') is not None:
+if os.getenv('HEROKU') is not None:
     import logging
     stream_handler = logging.StreamHandler()
     app.logger.addHandler(stream_handler)

@@ -6,11 +6,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # embedded objects with maxwidth=800.
 SITE_WIDTH = 800
 
-if os.environ.get('DATABASE_URL') is None:
+if os.getenv('DATABASE_URL') is None:
     SQLALCHEMY_DATABASE_URI = ('sqlite:///' + os.path.join(basedir, 'app.db') +
                                '?check_same_thread=False')
 else:
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
 
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 
@@ -21,8 +21,8 @@ cloudinary.config(
 )
 
 # OAuth2 Configuration
-GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
-GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", None)
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET", None)
 GOOGLE_DISCOVERY_URL = (
     "https://accounts.google.com/.well-known/openid-configuration"
 )

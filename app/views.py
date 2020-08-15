@@ -86,7 +86,6 @@ def not_found(exc):
 def login():
     # Find out what URL to hit for Google login
     google_provider_cfg = get_google_provider_cfg()
-    print(google_provider_cfg["authorization_endpoint"])
     authorization_endpoint = google_provider_cfg["authorization_endpoint"]
 
     # Use library to construct the request for Google login and provide
@@ -102,6 +101,7 @@ def login():
 def callback():
     # Get authorization code Google sent back to you
     code = request.args.get("code")
+    print(code)
 
         # Find out what URL to hit to get tokens that allow you to ask for
     # things on behalf of a user
