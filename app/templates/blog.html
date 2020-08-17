@@ -28,13 +28,10 @@
 				<a class="btn btn-default" href="{{ url_for('drafts') }}">View drafts</a>
 				{% endif %}
 
-				{% for entry in object_list %}
-				{% if search %}
-				{% set entry = entry.entry %}
-				{% endif %}
+				{% for entry in entries %}
 				<div class="row post-medium">
 					<div class="col-md-5">
-						<div class="row"><img src="{{ entry.image_url(width = 900) }}" /></div>
+						<div class="row"><img src="{{ entry.header_image.url() }}" /></div>
 					</div>
 					<div class="col-md-7">
 						<div class="post-item">
@@ -45,12 +42,12 @@
 										</div>
 								</div>
 								<div class="post-item-paragraph">
-								<h2><a href="{% if entry.published %}{{ url_for('detail', slug=entry.slug) }}{% else %}{{ url_for('edit', slug=entry.slug) }}{% endif %}">{{ entry.title }}</a></h2>
+                                <h2><a href="{{ url_for('detail', slug=entry.slug) }}">{{ entry.title }}</a></h2>
 								<p class="ellipsis-readmore">{{ entry.subtitle }}</p>
 							</div>
 							<div class="pm-bottom-info clearfix">
 								<div class="pull-left">
-									<time class="published updated" datetime="{{ entry.date }}">{{ entry.timestamp.strftime('%m/%d/%Y') }}</time>
+									<time class="published updated" datetime="{{ entry.posted_at }}">{{ entry.posted_at.strftime('%m/%d/%Y') }}</time>
 								</div>
 							</div>
 						</div>

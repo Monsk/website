@@ -186,8 +186,8 @@ def index():
 
 @app.route('/blog/')
 def blog():
-    query = db.session.query(BlogEntry).filter(BlogEntry.published == True).order_by(BlogEntry.timestamp.desc())
-    return render_template('blog.html', object_list = query)
+    entries = contentfulClient.entries()
+    return render_template('blog.html', entries = entries)
 
 @app.route('/blog/create/', methods=['GET', 'POST'])
 @login_required
@@ -240,49 +240,6 @@ def detail(slug):
         query = db.session.query(BlogEntry.published)
     entry = get_object_or_404(BlogEntry, BlogEntry.slug == slug)
     return render_template('detail.html', entry=entry)
-
-@app.route('/blog/<slug>/edit/', methods=['GET', 'POST'])
-@login_required
-def edit(slug):
-    entry = get_object_or_404(BlogEntry, BlogEntry.slug == slug)
-    if request.method == 'POST':
-        if request.form.get('title') and request.form.get('content'):
-
-            # Upload cover photo
-            if request.files.get('cover_photo'):
-                cover_photo = request.files['cover_photo']
-                uploaded_img = cloudinary.uploader.upload(cover_photo)
-                image_filename = uploaded_img["public_id"]
-                entry.image_filename = image_filename
-
-            entry.title = request.form['title']
-            entry.slug = slugify(request.form.get('title'))
-            entry.subtitle = request.form['subtitle']
-            entry.content = request.form['content']
-            if request.form.get('published'):
-                entry.published = True
-
-            db.session.add(entry)
-            db.session.commit()
-
-            flash('Entry saved successfully.', 'success')
-            if entry.published:
-                return redirect(url_for('detail', slug=entry.slug))
-            else:
-                return redirect(url_for('edit', slug=entry.slug))
-        else:
-            flash('Title and Content are required.', 'danger')
-
-    return render_template('edit.html', entry=entry)
-
-@app.route('/delete/<slug>', methods=['POST'])
-@login_required
-def delete_entry(slug):
-    if request.method == 'POST':
-        db.session.query(BlogEntry).filter(BlogEntry.slug == slug).delete()
-        db.session.commit()
-        flash('Entry was deleted')
-    return redirect(url_for('drafts'))
 
 @app.route('/about/')
 def about():
@@ -375,13 +332,4 @@ def vancouver_island():
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():
     return render_template("privacy_policy.html")
-
-@app.route('/content')
-def content():
-    entries = contentfulClient.entries()
-    
-    for entry in entries:
-        print(entry.title)
-
-    return('Success')
 
