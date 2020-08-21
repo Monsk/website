@@ -180,7 +180,7 @@ def index():
 
 @app.route('/blog/')
 def blog():
-    entries = contentfulClient.entries()
+    entries = contentfulClient.entries({'content_type': 'blogPost', 'order': 'fields.postedAt'})[::-1]
     return render_template('blog.html', entries = entries)
 
 @app.route('/blog/<slug>/')

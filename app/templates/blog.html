@@ -30,9 +30,11 @@
 
 				{% for entry in entries %}
 				<div class="row post-medium">
+					{% if entry.header_image %}
 					<div class="col-md-5">
 						<div class="row"><img src="{{ entry.header_image.url() }}" /></div>
 					</div>
+					{% endif %}
 					<div class="col-md-7">
 						<div class="post-item">
 							<div class="medium-post-box clearfix">
@@ -45,11 +47,13 @@
                                 <h2><a href="{{ url_for('detail', slug=entry.slug) }}">{{ entry.title }}</a></h2>
 								<p class="ellipsis-readmore">{{ entry.subtitle }}</p>
 							</div>
+							{% if entry.posted_at %}
 							<div class="pm-bottom-info clearfix">
 								<div class="pull-left">
 									<time class="published updated" datetime="{{ entry.posted_at }}">{{ entry.posted_at.strftime('%m/%d/%Y') }}</time>
 								</div>
 							</div>
+							{% endif %}
 						</div>
 					</div>
 				</div>
