@@ -25,6 +25,7 @@ import requests
 # from sqlalchemy.orm import exc
 from sqlalchemy.orm import exc
 from werkzeug.exceptions import abort
+from rich_text_renderer import RichTextRenderer
 
 from app import app, db, client, contentfulClient
 from .models import BlogEntry, User
@@ -39,13 +40,6 @@ def get_object_or_404(model, *criterion):
         abort(404)
 
 _punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
-
-def slugify(text, delim=u'-'):
-    """Generates an ASCII-only slug."""
-    result = []
-    for word in _punct_re.split(text.lower()):
-        result.extend(unidecode(word).split())
-    return unicode(delim.join(result))
 
 def template_og_metadata(metadata):
     return {
@@ -189,57 +183,13 @@ def blog():
     entries = contentfulClient.entries()
     return render_template('blog.html', entries = entries)
 
-@app.route('/blog/create/', methods=['GET', 'POST'])
-@login_required
-def create():
-    if request.method == 'POST':
-        if request.form.get('title') and request.form.get('content'):
-
-            # Upload cover photo
-            cover_photo = request.files['cover_photo']
-            uploaded_img = cloudinary.uploader.upload(
-                cover_photo
-            )
-            image_filename = uploaded_img["public_id"]
-
-            entry = BlogEntry(
-                title=request.form['title'],
-                subtitle=request.form['subtitle'],
-                content=request.form['content'],
-                published=request.form.get('published') or False,
-                slug=slugify(request.form.get('title')),
-                image_filename = image_filename
-                )
-
-            print(slugify(request.form.get('title')))
-
-            db.session.add(entry)
-            db.session.commit()
-
-            flash('Entry created successfully.', 'success')
-            if entry.published:
-                return redirect(url_for('detail', slug=entry.slug))
-            else:
-                return redirect(url_for('edit', slug=entry.slug))
-        else:
-            flash('Title and Content are required.', 'danger')
-    return render_template('create.html')
-
-@app.route('/blog/drafts/')
-@login_required
-def drafts():
-    query = db.session.query(BlogEntry).filter(BlogEntry.published == False).order_by(BlogEntry.timestamp.desc())
-    return render_template('blog.html', object_list=query)
-
 @app.route('/blog/<slug>/')
 def detail(slug):
-    print(slug)
-    if session.get('logged_in'):
-        query = db.session.query(BlogEntry)
-    else:
-        query = db.session.query(BlogEntry.published)
-    entry = get_object_or_404(BlogEntry, BlogEntry.slug == slug)
-    return render_template('detail.html', entry=entry)
+    renderer = RichTextRenderer()
+    searchResult = contentfulClient.entries({'content_type': 'blogPost','fields.slug': slug})
+    entry = searchResult[0] if len(searchResult) > 0 else abort(404)
+    
+    return render_template('detail.html', renderer=renderer, entry=entry)
 
 @app.route('/about/')
 def about():

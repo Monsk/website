@@ -40,7 +40,7 @@
 		            <div class="post-item-paragraph blog-content">
                   <h1>{{ entry.title }}</h1>
                   <div class="lead-text blog-content">{{ entry.subtitle }}</div>
-		                {{ entry.content | safe }}
+		                {{ renderer.render(entry.body) | safe }}
 		            </div>
 		        </div>
 		    </div>
