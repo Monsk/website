@@ -372,6 +372,20 @@ def vancouver_island():
         twitter=template_twitter_metadata(metaconfig)
         )
 
+@app.route('/photography/scotland')
+def scotland():
+    metaconfig = {
+        'title': "Simon Hunter | Scotland",
+        'url': "http://www.simonhunter.co/photography/scotland.html",
+        'description': "Photos taken on an 8 day trip to Glencoe & Oban",
+        'img': "https://res.cloudinary.com/monsk/image/upload/c_scale,h_400/v1564355825/Vancouver%20Island/DSC_9171.jpg"
+    }
+    return render_template(
+        "scotland.html",
+        og=template_og_metadata(metaconfig),
+        twitter=template_twitter_metadata(metaconfig)
+        )
+
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():
     return render_template("privacy_policy.html")
