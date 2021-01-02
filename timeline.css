@@ -300,7 +300,7 @@ html * {
   .cd-timeline-content .cd-date {
     float: left;
     padding: .8em 0;
-    opacity: .7;
+    /* opacity: .7; */
   }
   
   .cd-timeline-content::before {

@@ -5,15 +5,40 @@
     <title>Covid Timeline</title>
     <script src="./modernizr.js"></script>
     <link rel="stylesheet" href="./timeline.css">
+    <link rel="stylesheet" href="./bootstrap-modal-theme.css">
+    <!-- <link rel="stylesheet" href="./bootstrap-modal.min.css"> -->
+
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 </head>
 
 <body id="home">
-    <div class="header">
+
+    <!-- Progress bar -->
+    <!-- <div class="header">
     <div class="progress-container">
         <div class="progress-bar" id="myBar"></div>
       </div>
+    </div> -->
+
+
+    <!-- Modal -->
+  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="uil-ripple-css" id="loadingDiv" style="margin:0 auto"><div></div><div></div></div>
+          <div>Some copy</div>
+        </div>
+        <div class="modal-footer" id="hide-twitter-content">
+        </div>
+      </div>
     </div>
+  </div> -->
+
+<!-- Timeline -->
 <section id="cd-timeline" class="cd-container">
 
     <h1 id="march">March</h1>
@@ -24,16 +49,16 @@
         <div class="cd-timeline-content">
             <h3>The early pandemic was a confusing time</h3>
             <img src="images/liam_gallagher.PNG">
-          <span class="cd-date">Mar 16</span> </div>
+          <div class="cd-date">
+            Mar 16<br>
+            <img width=300px, src="images/Daily COVID-19 deaths.svg">
+          </div> 
+        </div>
         <!-- cd-timeline-content --> 
       </div>
 
     <div class="cd-timeline-block">
-        <div class="cd-timeline-img"> 
-            <!-- <img src="cd-icon-picture.svg" alt="Picture">  -->
-          </div>
-        <!-- cd-timeline-img -->
-        
+        <div class="cd-timeline-img"></div>        
         <div class="cd-timeline-content">
           <h3>Tracking case counts</h3>
           <p> In the early days of the pandemic I decided to track case count. It felt pretty novel at the time, before most media outlets created COVID tracker web pages. 
