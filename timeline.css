@@ -119,7 +119,7 @@ html * {
   }
   
   #cd-timeline::before {
-    left: 50%;
+    /* left: 50%; */
     margin-left: -2px;
   }
   }
@@ -128,6 +128,13 @@ html * {
     position: relative;
     margin: 2em 0;
    *zoom: 1;
+  }
+
+  .cd-timeline-content-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 4em;
   }
   
   .cd-timeline-block:before,
@@ -149,13 +156,18 @@ html * {
   
   .cd-timeline-block:last-child { margin-bottom: 0; }
   }
+
+  .content-block-item {
+    padding-left: 1em;
+  }
   
   .cd-timeline-img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
     border-radius: 50%;
     background: #e2e2e2;
     /* box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05); */
@@ -166,7 +178,7 @@ html * {
     width: 24px;
     height: 24px;
     position: relative;
-    left: 50%;
+    /* left: 50%; */
     top: 50%;
     margin-left: -12px;
     margin-top: -12px;
@@ -180,10 +192,10 @@ html * {
   @media only screen and (min-width: 1170px) {
   
   .cd-timeline-img {
-    width: 40px;
-    height: 40px;
-    left: 50%;
-    margin-left: -20px;
+    width: 30px;
+    height: 30px;
+    /* left: 50%; */
+    margin-left: 3px;
     /* Force Hardware Acceleration in WebKit */
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
@@ -334,7 +346,7 @@ html * {
   @media only screen and (min-width: 1170px) {
   
   .cd-timeline-content {
-    margin-left: 0;
+    /* margin-left: 0; */
     padding: 1.6em;
     width: 45%;
   }
@@ -357,7 +369,7 @@ html * {
     font-size: 1rem;
   }
   
-  .cd-timeline-block:nth-child(even) .cd-timeline-content { float: right; }
+  /* .cd-timeline-block:nth-child(even) .cd-timeline-content { float: right; } */
   
   .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
     top: 15px;
