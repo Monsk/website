@@ -5,8 +5,6 @@
     <title>Covid Timeline</title>
     <script src="./modernizr.js"></script>
     <link rel="stylesheet" href="./timeline.css">
-    <link rel="stylesheet" href="./bootstrap-modal-theme.css">
-    <!-- <link rel="stylesheet" href="./bootstrap-modal.min.css"> -->
 
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 </head>
@@ -21,23 +19,6 @@
     </div> -->
 
 
-    <!-- Modal -->
-  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <div class="uil-ripple-css" id="loadingDiv" style="margin:0 auto"><div></div><div></div></div>
-          <div>Some copy</div>
-        </div>
-        <div class="modal-footer" id="hide-twitter-content">
-        </div>
-      </div>
-    </div>
-  </div> -->
-
 <!-- Timeline -->
 <section id="cd-timeline" class="cd-container">
 
@@ -48,54 +29,57 @@
   </div>
 
     <div class="cd-timeline-block">
-        <div class="cd-timeline-img"></div>
+        <div class="cd-timeline-marker"></div>
         <div class="cd-timeline-content-block">
-          <div class="content-block-item">
-            Mar 16<br>
-            <img width=300px, src="images/Daily COVID-19 deaths.svg">
+          <div class="date-block-item">
+            <h4>Mar 16</h4>
+            <img src="images/Daily COVID-19 deaths.svg">
           </div>
-          <div class="cd-timeline-content">
+          <div class="content-block-item">
               <h3>The early pandemic was a confusing time</h3>
               <img src="images/liam_gallagher.PNG">         
           </div>
         </div>
-        <!-- cd-timeline-content --> 
       </div>
 
     <div class="cd-timeline-block">
-        <div class="cd-timeline-img"></div>  
+        <div class="cd-timeline-marker"></div>  
         <div class="cd-timeline-content-block">
-          <div class="content-block-item">Mar 11<br>
-            <img width=300px, src="images/Daily COVID-19 deaths.svg">
+          <div class="date-block-item">
+            <h4>Mar 11</h4>
+            <img src="images/Daily COVID-19 deaths.svg">
           </div>
-          <div class="cd-timeline-content">
+          <div class="content-block-item">
             <h3>Tracking case counts</h3>
             <p> In the early days of the pandemic I decided to track case count. It felt pretty novel at the time, before most media outlets created COVID tracker web pages. 
-                At this point in the pandemic South Korea had the most cases and Italy was starting to grow rapidly. Case counts in other countries were comparitively very low.
+                In early March South Korea had the most cases and Italy was starting to grow rapidly. Case counts in other countries were comparitively very low.
+            </p>
+            <p>
+                In hindsight this analysis, and that by others, was fairly meaningless. 
+                Testing was at such low levels at this point in the pandemic that case counts were being massively underreported, particularly in Europe.
+                Instead, reported case counts were just a function of how well established country's testing infrasture was.
+                A more useful metric turned out to be the positivity rate of tests.
               </p>
               <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I wanted to see how similar the growth rate of <a href="https://twitter.com/hashtag/COVID19?src=hash&amp;ref_src=twsrc%5Etfw">#COVID19</a> is between countries. Italy just passed South Korea&#39;s cases per population but the trajectory is starkly different. <a href="https://t.co/jYuvAXEDGW">pic.twitter.com/jYuvAXEDGW</a></p>&mdash; Simon Hunter (@SimonHunter28) <a href="https://twitter.com/SimonHunter28/status/1237612105055887369?ref_src=twsrc%5Etfw">March 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <!-- cd-timeline-content --> 
           </div>
         </div>
       </div>
-      <!-- cd-timeline-block -->
-
-
 
       <div class="cd-timeline-block">
-      <div class="cd-timeline-img"> 
-          <!-- <img src="cd-icon-picture.svg" alt="Picture">  -->
+        <div class="cd-timeline-marker"></div>  
+        <div class="cd-timeline-content-block">
+          <div class="date-block-item">
+            <h4>Mar 16</h4>
+            <img src="images/Daily COVID-19 deaths.svg">
+          </div>
+          <div class="content-block-item">
+            <h3>Lockdown in the UK</h3>
+            <p>On March 16 the UK implements a complete lockdown for the first time amid rapidly rising cases and deaths.</p>
+          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">When Boris Johnson catches me going for my 5th jog <a href="https://t.co/03lf3gkfu8">pic.twitter.com/03lf3gkfu8</a></p>&mdash; Chunkz (@Chunkz) <a href="https://twitter.com/Chunkz/status/1242202330822557697?ref_src=twsrc%5Etfw">March 23, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
         </div>
-      <!-- cd-timeline-img -->
-      
-      <div class="cd-timeline-content">
-          <h3>Lockdown in the UK</h3>
-          <p>On March 16 the UK implements a complete lockdown for the first time amid rapidly rising cases and deaths.</p>
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">When Boris Johnson catches me going for my 5th jog <a href="https://t.co/03lf3gkfu8">pic.twitter.com/03lf3gkfu8</a></p>&mdash; Chunkz (@Chunkz) <a href="https://twitter.com/Chunkz/status/1242202330822557697?ref_src=twsrc%5Etfw">March 23, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <span class="cd-date">Mar 23</span> </div>
-      <!-- cd-timeline-content --> 
-    </div>
-    <!-- cd-timeline-block -->
+      </div>
+
 
 
     <div class="cd-timeline-block">
@@ -105,93 +89,132 @@
     </div>
 
     <div class="cd-timeline-block">
-        <div class="cd-timeline-img"></div>
-        
-        <div class="cd-timeline-content">
-            <h3>Mask-wearing becomes normalized</h3>
-            <p>By April mask-wearing was becoming the social norm in San Francisco, despite no rules mandating it at this time. 
-                This was well in advance of masks becoming normalized in the UK. Here I'm wearing a mask we had saved for the aftermath of a possible earthquake.
-            </p>
-            <img src="images/me_mask.jpg">
-            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Last weekend wore a mask to the grocery store and felt like it was a bit much. This weekend forgot the mask and it felt like the most reckless thing I&#39;ve done since deciding to have a child.</p>&mdash; Simon Hunter (@SimonHunter28) <a href="https://twitter.com/SimonHunter28/status/1249386799350202368?ref_src=twsrc%5Etfw">April 12, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <span class="cd-date">Apr 11</span> </div>
-        <!-- cd-timeline-content --> 
-      </div>
-    
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img"> 
-          <!-- <img src="cd-icon-movie.svg" alt="Movie">  -->
+      <div class="cd-timeline-marker"></div>  
+      <div class="cd-timeline-content-block">
+        <div class="date-block-item">
+          <h4>Apr 11</h4>
+          <img src="images/Daily COVID-19 deaths.svg">
         </div>
-      <!-- cd-timeline-img -->
-      <div class="cd-timeline-content">
-        <h3>Easter in lockdown</h3>
-        <p>An easter egg hunt amid the dried earth and weeds of our back yard.
-        </p>
-        <img src="images/easter.jpg">
-        <!-- <a href="#0" class="cd-read-more">Read more</a>  -->
-        <span class="cd-date">Apr 12</span> 
+        <div class="content-block-item">
+          <h3>Mask-wearing becomes normalized</h3>
+          <p>By April mask-wearing was becoming the social norm in San Francisco, despite no rules mandating it at this time. 
+            Masks were initially pretty hard to get hold of and people were collecting spares to give to healthcare workers who also had a shortage of protective equipment.  
+            This was well in advance of masks becoming normalized in the UK. Here I'm wearing an N95 mask we had saved for the aftermath of a possible earthquake. 
+          </p>
+          <img src="images/me_mask.jpg">
+          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Last weekend wore a mask to the grocery store and felt like it was a bit much. This weekend forgot the mask and it felt like the most reckless thing I&#39;ve done since deciding to have a child.</p>&mdash; Simon Hunter (@SimonHunter28) <a href="https://twitter.com/SimonHunter28/status/1249386799350202368?ref_src=twsrc%5Etfw">April 12, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+      </div>
     </div>
-      <!-- cd-timeline-content --> 
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-marker"></div>  
+      <div class="cd-timeline-content-block">
+        <div class="date-block-item">
+          <h4>Apr 12</h4>
+          <img src="images/Daily COVID-19 deaths.svg">
+        </div>
+        <div class="content-block-item">
+          <h3>Easter in lockdown</h3>
+          <p>An easter egg hunt amid the dried earth and weeds of our back yard.
+          </p>
+          <img src="images/easter.jpg">        
+        </div>
+      </div>
     </div>
-    <!-- cd-timeline-block -->
 
-    <h1>May</h1>
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-marker"></div>  
+      <div class="cd-timeline-content-block">
+        <div class="date-block-item">
+          <h4>Apr 14</h4>
+          <img src="images/Daily COVID-19 deaths.svg">
+        </div>
+        <div class="content-block-item">
+          <h3>Covid deaths peak in the UK</h3>
+          <p>
+            One month after the UK institutes lockdown, the mortality rate peaks. 
+            At this point in the pandemic, roughly 1000 people were dying of Covid every day in the UK, and the UK's mortality rate had become one of the highest in the world.
+          </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-marker"></div>  
+      <div class="cd-timeline-content-block">
+        <div class="date-block-item">
+          <h4>Apr 26</h4>
+          <img src="images/Daily COVID-19 deaths.svg">
+        </div>
+        <div class="content-block-item">
+          <h3>Time to start a garden</h3>
+          <p>
+            A month into lockdown and being confined to the same small apartment and patch of dirt behind the house I decide to start a garden.
+            I made a trip to Lowes and bought tomato plants, a chili plant and seeds for flowers and other vegeatable.
+            The endeavour was broadly futile; the seedlings were eaten by undiscovered pests as soon as they germinated. 
+            Only the tomato plants did well, and even they didn't ripen before we left the US.
+          </p>
+          <img src="images/gardening_04-26.JPG">      
+          </div>
+      </div>
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-content-block">
+        <h1 id="may">May</h1>
+      </div>  
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-content-block">
+        <h1 id="june">June</h1>
+      </div>  
+    </div>   
+    
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-marker"></div>  
+      <div class="cd-timeline-content-block">
+        <div class="date-block-item">
+          <h4>June 13</h4>
+          <img src="images/Daily COVID-19 deaths.svg">
+        </div>
+        <div class="content-block-item">
+          <h3>Berry picking in Pescadero</h3>
+          <p>For our sanity, though strictly against the rules, we got a car and headed out of the city and down the coast to Pescadero. 
+              Here we spent the day picking berries, eating tacos and hanging out on the beach.</p>
+          <img src="images/berry_picking_june13.JPG">      
+        </div>
+      </div>
+    </div>
+    
 
 
-    <h1>June</h1>
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-content-block">
+        <h1 id="july">July</h1>
+      </div>  
+    </div> 
+    
     
     <div class="cd-timeline-block">
-      <div class="cd-timeline-img"></div>
-      
-      <div class="cd-timeline-content">
-        <h2>Berry picking in Pescadero</h2>
-        <p>For our sanity, though strictly against the rules, we got a car and headed out of the city and down the coast to Pescadero. 
-            Here we spent the day picking berries, eating tacos and hanging out on the beach.</p>
-        <img src="images/berry_picking_june13.JPG">
-        <span class="cd-date">Jun 13</span> </div>
-    </div>
-
-    <h1>July</h1>
-
-    <div class="cd-timeline-block">
-        <div class="cd-timeline-img"></div>
-        
-        <div class="cd-timeline-content">
-          <h2>Back to the UK</h2>
+      <div class="cd-timeline-marker"></div>  
+      <div class="cd-timeline-content-block">
+        <div class="date-block-item">
+          <h4>July 18</h4>
+          <img src="images/Daily COVID-19 deaths.svg">
+        </div>
+        <div class="content-block-item">
+          <h3>Back to the UK</h3>
           <p></p>
           <div>          
             <video width="400" controls autoplay><source src="images/airport.mp4" type="video/mp4"></video>
-            </div>
-          <span class="cd-date">Jul 18</span> </div>
+            </div>    
+        </div>
       </div>
-    
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img"> 
-          <!-- <img src="cd-icon-location.svg" alt="Location">  -->
-        </div>
-      <!-- cd-timeline-img -->
-      
-      <div class="cd-timeline-content">
-        <h2>Title of section 5</h2>
-        <p> Content 5 </p>
-        <a href="#0" class="cd-read-more">Read more</a> <span class="cd-date">Feb 18</span> </div>
-      <!-- cd-timeline-content --> 
     </div>
-    <!-- cd-timeline-block -->
     
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img"> 
-          <!-- <img src="cd-icon-movie.svg" alt="Movie">  -->
-        </div>
-      <!-- cd-timeline-img -->
-      
-      <div class="cd-timeline-content">
-        <h2>Final Section</h2>
-        <p> Content 6 </p>
-        <a href="#0" class="cd-read-more">Read more</a> <span class="cd-date">Feb 26</span> </div>
-      <!-- cd-timeline-content --> 
-    </div>
-    <!-- cd-timeline-block --> 
 </section>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
