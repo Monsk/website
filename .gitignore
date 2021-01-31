@@ -1,6 +1,10 @@
 .DS_Store
 .vscode
 .env
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
 
 cert.pem
 key.pem
