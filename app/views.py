@@ -389,3 +389,7 @@ def scotland():
 @app.route('/pmuk/privacy_policy')
 def privacy_policy():
     return render_template("privacy_policy.html")
+
+@app.route('/covid_timeline')
+def covid_timelin():
+    return render_template("timeline.html")
